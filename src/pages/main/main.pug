@@ -1,0 +1,22 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'main'
+    const pageTitle = 'main'
+
+block content
+  main
+    +section
+      .inner
+        +banner
+    +section('--ov-h')
+      +products-slider
+    +section
+      .inner
+        +main-about
+    +section
+      +values
+    +section
+      .inner
+        +form

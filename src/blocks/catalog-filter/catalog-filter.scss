@@ -1,0 +1,40 @@
+.catalog-filter {
+  @include media-laptop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  @include media-tablet {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    @include media-laptop {
+      margin-bottom: 0;
+    }
+  }
+  &__body {
+    display: grid;
+    align-content: start;
+    gap: 20px;
+    @include media-laptop {
+      display: none;
+    }
+  }
+  &__ui-select {
+    display: none;
+    width: 100%;
+    max-width: 320px;
+    @include media-laptop {
+      display: block;
+    }
+    @include media-tablet {
+      max-width: unset;
+    }
+  }
+}

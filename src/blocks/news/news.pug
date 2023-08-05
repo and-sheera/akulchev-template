@@ -1,0 +1,22 @@
+mixin news(mods)
+  -
+    const baseName = 'news'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const cardData = {
+      title: 'Заголовок новости',
+      descr: 'Дискатор, произведённый под нашей торговой маркой. Активно предлагаем эту модель на рынке. Дискатор, произведённый под нашей торговой маркой. Активно предлагаем эту модель на рынке.',
+      button: 'Читать'
+    }
+
+  .news(class=allMods)&attributes(attributes)
+    -for(let i=0; i<8; i++)
+      +card(cardData)
+    block

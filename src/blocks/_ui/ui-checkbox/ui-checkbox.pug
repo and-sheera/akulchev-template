@@ -1,0 +1,25 @@
+mixin ui-checkbox(text, mods, num, arrow)
+  -
+    const baseName = 'ui-checkbox'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+    let randomId = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substr(0, 7);
+
+  .ui-checkbox(class=allMods)&attributes(attributes)
+    .ui-checkbox__wrapper
+      .ui-checkbox__control
+        input(id=randomId type='checkbox')
+        label(for=randomId)!=text
+      if arrow
+        button.ui-checkbox__button(type='button')
+      if num
+        .ui-checkbox__num !{num}
+    if arrow
+      .ui-checkbox__dropdown
+        block

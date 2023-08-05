@@ -1,0 +1,21 @@
+mixin companies(mods)
+  -
+    const baseName = 'companies'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .companies(class=allMods)&attributes(attributes)
+    .swiper-wrapper.companies__swiper-wrapper
+      -for(let i=0; i<5; i++)
+        .companies__item.swiper-slide
+          img(src='../../images/companies-1.png' alt='')
+        .companies__item.swiper-slide
+          img(src='../../images/companies-2.png' alt='')
+    +ui-swiper-bullets
+    block

@@ -1,0 +1,18 @@
+mixin card(data, mods)
+  -
+    const baseName = 'card'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a.card(class=allMods href='#')&attributes(attributes)
+    .card__img: img(src='../../images/card.jpg' alt='')
+    .card__title !{data.title}
+    .card__descr !{data.descr}
+    .card__button !{data.button}
+    block

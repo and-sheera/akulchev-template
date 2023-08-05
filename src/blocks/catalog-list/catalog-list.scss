@@ -1,0 +1,11 @@
+.catalog-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  @include media-laptop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include media-tablet {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

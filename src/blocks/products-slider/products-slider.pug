@@ -1,0 +1,53 @@
+mixin products-slider(mods)
+  -
+    const baseName = 'products-slider'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = [
+      {
+        mod: 'products-slider__item--hit',
+        name: 'Венские вафли',
+      },
+      {
+        mod: 'products-slider__item--began',
+        name: 'Купелька',
+      },
+      {
+        name: 'Вафельное печенье',
+      },
+      {
+        name: 'Мяфли',
+      },
+      {
+        name: 'Macarons',
+      },
+      {
+        mod: 'products-slider__item--new',
+        name: 'Мороженое',
+      },
+      {
+        mod: 'products-slider__item--new',
+        name: 'Безе',
+      },
+    ]
+
+  .products-slider(class=allMods)&attributes(attributes)
+    .inner.products-slider__inner
+      .products-slider__title
+        +ui-h2('Наша продукция', 'products-slider')
+      .products-slider__slider
+        .swiper-wrapper
+          each item, index in data
+            .products-slider__item.swiper-slide(class=item.mod)
+              .products-slider__img: img(src=`../../images/products-slider/products-slider_${index + 1}.png` alt=item.name)
+              .products-slider__name !{item.name}
+        +ui-swiper-bullets('products-slider')
+        +ui-swiper-buttons('products-slider')
+    block

@@ -1,0 +1,15 @@
+.news {
+  --rows: 4;
+
+  display: grid;
+  grid-template-columns: repeat(var(--rows), minmax(0, 1fr));
+  gap: 40px 20px;
+  @include media-laptop {
+    --rows: 2;
+
+    gap: 20px;
+  }
+  @include media-tablet {
+    --rows: 1;
+  }
+}

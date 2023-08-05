@@ -1,0 +1,13 @@
+@import '../../node_modules/normalize.css/normalize.css';
+@import '../../node_modules/tom-select/dist/css/tom-select.min.css';
+@import '../../node_modules/swiper/swiper-bundle.min.css';
+@import 'utils/variables';
+@import 'utils/media';
+@import 'utils/fonts';
+@import 'utils/keyframes';
+@import '../layout/layout';
+
+
+// BLOCKS
+
+@import '../blocks/**/*';

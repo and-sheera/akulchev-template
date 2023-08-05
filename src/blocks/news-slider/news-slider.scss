@@ -1,0 +1,17 @@
+.news-slider {
+  @include media-laptop {
+    max-width: 93.3%;
+    margin: 0 auto;
+  }
+  @include media-tablet {
+    max-width: 100%;
+  }
+  &__card {
+    &:not(.swiper-slide-visible) {
+      opacity: 0;
+      @include media-laptop {
+        opacity: 0.5;
+      }
+    }
+  }
+}

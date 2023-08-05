@@ -1,0 +1,20 @@
+mixin main-about(mods)
+  -
+    const baseName = 'main-about'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .main-about(class=allMods)&attributes(attributes)
+    .main-about__content
+      +ui-h2('Акульчев ', 'main-about')
+      .main-about__quote “От семьи для семьи”
+      .main-about__text «Акульчев» сегодня является лидирующей компанией на российском рынке мягких вафель, которая продает свои изделия не только в России, но и в странах СНГ, и по всему миру.  Наша миссия - создавать вкусные, красивые, доступные продукты, которым доверяют.
+      +ui-button('Скачать каталог', '--max-w305')(href='#')
+    .main-about__img: img(src='../../images/main-about.jpg' alt='')
+    block

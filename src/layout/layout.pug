@@ -1,0 +1,26 @@
+block variables
+include ../blocks/mixins
+
+doctype html
+html(lang='ru')
+  block head
+    head
+      meta(charset='utf-8')
+      title=pageTitle
+      meta(content='width=device-width, initial-scale=1' name='viewport')
+      meta(content='ie=edge' http-equiv='x-ua-compatible')
+      link(href='https://vitejs.dev/logo.svg' rel='icon' type='image/x-icon')
+      script(src='https://api-maps.yandex.ru/3.0/?apikey=1f45e5c2-db9e-4adb-a847-0b7a110356ca&lang=ru_RU')
+  body.transition-disabled
+    .wrapper
+      block header
+        include ../blocks/header/header
+      block content
+      block footer
+        include ../blocks/footer/footer
+      //- +popup#back-call
+      //-   +form(backCallForm, '--column')
+      //- +popup#request-quote
+      //-   +form(requestQuote, '--column')
+    block scripts
+      script(type='module' src='../../js/index.js')

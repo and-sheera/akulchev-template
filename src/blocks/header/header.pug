@@ -1,0 +1,68 @@
+-
+  const menu = [
+    {
+      name: 'Продукция',
+      submenu: [
+        'Венские вафли',
+        'Купелька',
+        'Мяфли',
+        'Вафельное печенье',
+        'Macarons',
+        'Пломбир',
+        'Безе',
+      ]
+    },
+    {
+      name: 'О компании',
+      submenu: [
+        'История компании',
+        'Карьера',
+        'Где нас купить',
+        'Поставщикам',
+      ]
+    },
+    {
+      name: 'Cотрудничество',
+      submenu: [
+        'Дистрибьюторам',
+        'Потребителям',
+      ]
+    },
+    {
+      name: 'Контакты',
+    }
+  ]
+
+mixin header__nav(title)
+  .header__nav
+    button.header__nav-back: +ui-svg('icon_header-back')
+    .header__nav-title !{title}
+    button.header__nav-close: +ui-svg('icon_cross')
+
+header.header
+  .inner.header__inner
+    button.header__burger-button: +ui-svg('icon_burger')
+    a.header__logo(href='/')
+      +ui-svg('icon_logo')
+    .header__burger
+      button.header__burger-close: +ui-svg('icon_cross')
+      ul.header__menu
+        each item in menu
+          li.header__item
+            a.header__link(href='#') !{item.name}
+            if item.submenu
+              .header__submenu
+                +header__nav(item.name)
+                ul.header__submenu-list
+                  each subitem in item.submenu
+                    li.header__subitem
+                      a.header__sublink(href='#') !{subitem}
+      .header__group
+        .header__socials
+          a.header__social(href='#')
+            +ui-svg('icon_vk')
+        .header__lang РУС
+          .header__lang-menu
+            a.header__lang-item(href='#') ENG
+    +ui-button('Перезвонить мне', 'header, --green')(href='#back-call' data-popup-open='')
+      +ui-svg('icon_header-phone')

@@ -1,0 +1,26 @@
+.section {
+  &:not(:first-child) {
+    margin-top: 80px;
+    @include media-laptop {
+      margin-top: 60px;
+    }
+  }
+  &--mt0 {
+    &:not(:first-child) {
+      margin-top: 0;
+    }
+  }
+  &--ov-h {
+    overflow: hidden;
+  }
+  &--bg {
+    padding: 40px 0;
+    background: grey;
+  }
+  &--pd-y80 {
+    padding: 80px 0;
+    @include media-laptop {
+      padding: 60px 0;
+    }
+  }
+}

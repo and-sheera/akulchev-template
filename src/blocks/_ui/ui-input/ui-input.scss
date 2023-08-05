@@ -1,0 +1,28 @@
+.ui-input {
+  position: relative;
+  input {
+    width: 100%;
+    padding: 15px 20px;
+    background: #fff;
+    border: 1px solid #D9D9D9;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    &::placeholder {
+      color: #D9D9D9;
+    }
+    &.parsley-error {
+      border-color: $red;
+    }
+  }
+  .parsley-errors-list {
+    position: absolute;
+    bottom: 2px;
+    left: 20px;
+    font-size: 10px;
+    color: $red;
+    @include media-tablet {
+      font-size: 11px;
+    }
+  }
+}

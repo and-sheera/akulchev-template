@@ -1,0 +1,51 @@
+mixin banner(mods)
+  -
+    const baseName = 'banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = [
+      {
+        name: 'Венские вафли',
+      },
+      {
+        name: 'Купелька',
+      },
+      {
+        name: 'Мяфли',
+      },
+      {
+        name: 'Вафельное печенье',
+      },
+      {
+        name: 'Macarons',
+      },
+      {
+        isNew: true,
+        name: 'Безе',
+      },
+      {
+        isNew: true,
+        name: 'Мороженое',
+      },
+    ]
+
+  .banner(class=allMods)&attributes(attributes)
+    .swiper-wrapper.banner__swiper-wrapper
+      each item, index in data
+        .banner__item.swiper-slide
+          .banner__img: img(src=`../../images/banner/banner-${index + 1}.png` alt=item.name)
+          if item.isNew
+            .banner__sticker-new
+          .banner__content
+            h2.banner__title !{item.name}
+            +ui-button('Подробнее', 'banner, --max-w305, --white')(href='#')
+    +ui-swiper-bullets('banner, --white')
+    +ui-swiper-buttons('banner, --l')
+    block

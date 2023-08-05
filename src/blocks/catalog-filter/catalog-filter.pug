@@ -1,0 +1,39 @@
+mixin catalog-filter(mods)
+  -
+    const baseName = 'catalog-filter'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  form.catalog-filter(class=allMods)&attributes(attributes)
+    .catalog-filter__title Назначение
+    .catalog-filter__body
+      +ui-checkbox('Комбайны', '', '25')
+      +ui-checkbox('Трактор', '--bold', '256')
+      +ui-checkbox('Почвообрабатывающая техника', '--bold', '', true)
+        +ui-checkbox('Дисковые бороны ', '--xs', '25')
+        +ui-checkbox('Культиваторы ', '--xs', '25')
+        +ui-checkbox('Плуги ', '--xs', '25')
+        +ui-checkbox('Глубокорыхлители ', '--xs', '25')
+        +ui-checkbox('Бороны ', '--xs', '25')
+        +ui-checkbox('Катки', '--xs', '25')
+      +ui-checkbox('Посевная техника', '--bold', '', true)
+        +ui-checkbox('Зерновые сеялки  ', '--xs', '25')
+        +ui-checkbox('Пропашные сеялки', '--xs', '25')
+      +ui-checkbox('Почвообрабатывающая техника', '--bold', '', true).active
+        +ui-checkbox('Дисковые бороны ', '--xs', '25')
+        +ui-checkbox('Культиваторы ', '--xs', '25')
+        +ui-checkbox('Плуги ', '--xs', '25')
+        +ui-checkbox('Глубокорыхлители ', '--xs', '25')
+        +ui-checkbox('Бороны ', '--xs', '25')
+        +ui-checkbox('Катки', '--xs', '25')
+      +ui-checkbox('Посевная техника', '--bold', '', true)
+        +ui-checkbox('Зерновые сеялки  ', '--xs', '25')
+        +ui-checkbox('Пропашные сеялки', '--xs', '25')
+    +ui-select('catalog-filter', 'Все', 'Комбайны', 'Посевная техника', 'Трактора', 'Почвообрабатывающая техника', 'Кормоуборочная техника', 'Внесение удобрений', 'Транспортировочные прицепы', 'Адаптеры', 'Коммунальная техника')
+    block

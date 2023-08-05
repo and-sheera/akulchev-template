@@ -1,0 +1,18 @@
+mixin page-404(mods)
+  -
+    const baseName = 'page-404'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .page-404(class=allMods)&attributes(attributes)
+    .inner.page-404__inner
+      .page-404__top ERROR
+      .page-404__err 404
+      +ui-button('Вернуться на главную', 'page-404, --m-pd-x-small')(href='/')
+    block

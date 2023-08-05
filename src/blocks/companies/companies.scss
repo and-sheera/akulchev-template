@@ -1,0 +1,19 @@
+.companies {
+  position: relative;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    transition: opacity 0.3s;
+    @include media-laptop {
+      height: 60px;
+    }
+    &:not(.swiper-slide-visible) {
+      opacity: 0;
+      @include media-laptop {
+        opacity: 1;
+      }
+    }
+  }
+}

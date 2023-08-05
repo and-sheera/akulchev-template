@@ -1,0 +1,68 @@
+mixin product(mods)
+  -
+    const baseName = 'product'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const photos = [
+      '../../images/product-1.png',
+      '../../images/product-2.png',
+      '../../images/product-3.png',
+      '../../images/product-4.png',
+      '../../images/product-1.png',
+      '../../images/product-2.png',
+      '../../images/product-3.png',
+      '../../images/product-4.png',
+    ]
+
+  .product(class=allMods)&attributes(attributes)
+    .product__main
+      .product__gallery
+        .product__slider
+          .swiper-wrapper
+            each img in photos
+              .product__slide.swiper-slide
+                img(src=img, alt='')
+          .product__btn.product__btn--prev
+          .product__btn.product__btn--next
+        .product__thumbs
+          .swiper-wrapper
+            each img in photos
+              .product__slide.swiper-slide
+                img(src=img, alt='')
+          .product__btn.product__btn--prev
+          .product__btn.product__btn--next
+      .product__detail
+        p Посевной комплекс «Кузбасс» имеет 5 модификации по ширине захвата: ПК-6,1; ПК-8,5; ПК-9,7; ПК-12,2; ПК-15,8
+        ul
+          li Четырехцилиндровый двигатель SDF 1000
+          li Мощность 115 л.с.
+          li Механическая КПП
+          li Максимальная скорость движения 40 км/ч
+          li Грузоподъемность задней навесной системы 4800 кг
+        p Посевной комплекс «Кузбасс» имеет 5 модификации по ширине захвата: ПК-6,1; ПК-8,5; ПК-9,7; ПК-12,2; ПК-15,8
+        p Посевной комплекс «Кузбасс» имеет 5 модификации по ширине захвата: ПК-6,1; ПК-8,5; ПК-9,7; ПК-12,2; ПК-15,8
+        +ui-button('Запросить цену', 'product, --m-pd-x-small')(href='#request-quote' data-popup-open)
+    +tabs('product')
+      +tabs-head(['Общее описание', 'Технические характеристики', 'Фото'])
+      +tabs-body
+        +tabs-item('--active')
+          .product-descr Посевной комплекс «Кузбасс» имеет 5 модификации по ширине захвата: ПК-6,1; ПК-8,5; ПК-9,7; ПК-12,2; ПК-15,8 (цифровой индекс соответствует ширине захвата в метрах) и представляет собой пневмосеялку-культиватор, предназначенную для работ как на полях, вспаханных обычным путем, так и для сева по стерне без предварительной подготовки почвы. <br>За один проход посевного комплекса выполняются следующие операции культивация, протравливание и высев семян, внесение удобрений, боронование, прикатывание, выравнивание почвы. <br>Пневмосистема высева семян посевного комплекса обеспечивает равномерное распределение семян полосой шириной 15-18 см. Технология ленточного посева позволяет каждому ростку обеспечить 3 – 4 кратное увеличение площади питания относительно традиционной технологии. Конструктивно предусмотрен сев зерновых, зернобобовых, технических и кормовых (в том числе мелкосемянных) культур по агрофонам как предварительно обработанным, так и необработанным (стерневым) с плотностью сева на гектар и глубиной заделки семян, устанавливаемых потребителем с учетом местных условий при одновременном внесении в почву удобрений. Особые требования к почвам и климатическим зонам не предъявляются.ян на посеве зерновых позволяет снизить потери урожая в
+        +tabs-item
+          .product-table
+            -for(let i=0; i<10; i++)
+              .product-table__tr
+                .product-table__td Номинальная частота вращения коленчатого вала двигателя nн, с-1 /(об/мин)
+                .product-table__td 18,4
+              .product-table__tr
+                .product-table__td Вес трактора (эксплуатационный) Gт, кН
+                .product-table__td 30 (1800)
+        +tabs-item
+          +gallery('', true, true)
+    block

@@ -1,0 +1,56 @@
+.ui-button {
+  --bg: #{$red};
+  --color: #fff;
+  --active-color: rgb(255 255 255 / 0.7);
+  --hover-b-sh-color: rgb(203 5 54 / 0.48);
+  --active-b-sh-color: rgb(0 0 0 / 0.10);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 28px 17px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color);
+  background: var(--bg);
+  border: 0;
+  border-radius: 71px;
+  transition: 0.3s;
+  white-space: nowrap;
+  cursor: pointer;
+  @include media-laptop {
+    padding: 11px 25px 12px;
+  }
+  &:hover {
+    color: var(--color);
+    box-shadow: 0 0 30px 0 var(--hover-b-sh-color);
+  }
+  &:active {
+    color: var(--active-color);
+    box-shadow: 5px 5px 5px 0 var(--active-b-sh-color) inset;
+  }
+  &[disabled] {
+    --bg: #{$grey};
+
+    pointer-events: none;
+  }
+  &--max-w305 {
+    width: 100%;
+    max-width: 305px;
+    @include media-laptop {
+      max-width: 170px;
+    }
+  }
+  &--green {
+    --bg: #{$green};
+    --hover-b-sh-color: rgb(0 177 82 / 0.50);
+  }
+  &--white {
+    --bg: #fff;
+    --color: #{$black};
+    --active-color: rgb(67 60 60 / 0.7);
+    --hover-b-sh-color: rgb(0 0 0 / 0.05);
+    --active-b-sh-color: rgb(0 0 0 / 0.10);
+  }
+}

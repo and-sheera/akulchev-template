@@ -1,0 +1,136 @@
+.banner {
+  position: relative;
+  background: #B20530;
+  border-radius: 60px;
+  overflow: hidden;
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 585px;
+    height: auto;
+    padding: 185px 730px 185px 107px;
+    color: #fff;
+    @include media-laptop {
+      padding: 70px 470px 95px 60px;
+      min-height: 320px;
+    }
+    @include media-tablet {
+      padding: 60px 20px 265px;
+      min-height: 420px;
+      overflow: hidden;
+    }
+  }
+  &__content {
+    position: relative;
+    z-index: 1;
+    @include media-tablet {
+      text-align: center;
+    }
+  }
+  &__img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 0;
+    max-width: 810px;
+    max-height: 100%;
+    @include media-laptop {
+      right: -15px;
+      max-width: 430px;
+    }
+    @include media-tablet {
+      top: unset;
+      right: calc(50% - 15px);
+      transform: translateX(50%);
+      bottom: 5px;
+      width: 420px;
+    }
+    img {
+      max-height: 100%;
+    }
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    @include media-laptop {
+      font-size: 30px;
+    }
+    @include media-tablet {
+      font-size: 25px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 30px;
+      @include media-laptop {
+        margin-bottom: 20px;
+      }
+      @include media-tablet {
+        margin-bottom: 24px;
+      }
+    }
+  }
+  &__sticker-new {
+    position: absolute;
+    top: 106px;
+    left: 110px;
+    width: 80px;
+    height: 80px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' fill='none'%3E%3Cpath fill='%2305EB70' d='M35.876 2.904c1.4-3.872 6.848-3.872 8.248 0 1.108 3.064 5.03 3.902 7.282 1.555 2.846-2.965 7.823-.738 7.535 3.371-.228 3.253 3.015 5.62 6.023 4.397 3.8-1.545 7.445 2.524 5.52 6.16-1.526 2.878.478 6.367 3.722 6.479 4.096.141 5.78 5.348 2.548 7.882-2.558 2.007-2.139 6.013.778 7.44 3.686 1.804 3.116 7.25-.862 8.243-3.149.787-4.388 4.619-2.3 7.115 2.636 3.154-.088 7.896-4.124 7.178-3.196-.568-5.878 2.426-4.982 5.56 1.132 3.959-3.276 7.177-6.673 4.871-2.689-1.825-6.351-.186-6.8 3.043-.569 4.08-5.898 5.218-8.069 1.724-1.718-2.767-5.726-2.767-7.444 0-2.17 3.494-7.5 2.356-8.068-1.724-.45-3.23-4.112-4.867-6.801-3.042-3.397 2.305-7.805-.913-6.673-4.872.896-3.134-1.786-6.128-4.982-5.56-4.036.718-6.76-4.024-4.124-7.178 2.088-2.496.849-6.328-2.3-7.115-3.978-.994-4.548-6.439-.862-8.243 2.917-1.427 3.336-5.434.778-7.44-3.232-2.534-1.548-7.741 2.548-7.882 3.244-.112 5.248-3.6 3.723-6.48-1.927-3.635 1.72-7.704 5.519-6.159 3.008 1.224 6.251-1.144 6.023-4.397-.288-4.109 4.69-6.336 7.535-3.371 2.253 2.347 6.174 1.51 7.282-1.555Z'/%3E%3Cpath fill='%23433C3C' d='M28.952 28.402v23.716h-5.406l-3.208-10.782v10.782h-5.156V28.402h5.156l3.457 10.679V28.4h5.157Zm2.49 0h10.283v4.746H37.61v4.497h3.852v4.512H37.61v5.215h4.526v4.746H31.442V28.402Zm35.683 0-2.739 23.716h-7.705c-.703-3.643-1.323-7.784-1.86-12.422-.244 1.982-.816 6.123-1.714 12.422h-7.661l-2.754-23.716h5.991l.63 8.276.645 7.984c.224-4.131.79-9.551 1.699-16.26h6.416c.088.693.312 3.3.674 7.822l.673 9.009a198.27 198.27 0 0 1 1.714-16.831h5.992Z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 20px 50px rgb(0 0 0 / 0.35));
+    @include media-laptop {
+      top: 20px;
+      left: 60px;
+      width: 50px;
+      height: 50px;
+    }
+    @include media-tablet {
+      top: 13px;
+      left: 15px;
+    }
+  }
+  &__ui-swiper-bullets {
+    position: absolute;
+    bottom: 60px;
+    left: 107px;
+    z-index: 2;
+    @include media-laptop {
+      bottom: 40px;
+      left: 60px;
+    }
+    @include media-tablet {
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__ui-swiper-buttons {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    left: 10px;
+    z-index: 1;
+    transform: translateY(-50%);
+    justify-content: space-between;
+    @include media-laptop {
+      right: 20px;
+      left: 20px;
+    }
+    @include media-tablet {
+      right: 10px;
+      left: 10px;
+    }
+    .swiper-button {
+      &-prev,
+      &-next {
+        opacity: 0.3;
+        &.swiper-button-disabled {
+          opacity: 0.15;
+        }
+      }
+    }
+  }
+}
