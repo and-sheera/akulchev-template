@@ -1,0 +1,75 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'distributors'
+    const pageTitle = 'Дистрибьюторам'
+
+    const valuesData = {
+      items: [
+        {
+          mods: 'values__item--reverse values__item--accent',
+          title: 'Забота',
+          descrMods: 'values__descr--max-w-s',
+          descr: 'Всегда уважительно относимся к партнеру',
+          img: '../../images/values/values_6.jpg'
+        },
+        {
+          title: 'Энергия',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'Мы быстро работаем и выдвигаем инициативы',
+          img: '../../images/values/values_2.jpg'
+        },
+        {
+          mods: 'values__item--reverse',
+          title: 'Вместе',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'Вместе растем и развиваем бизнес',
+          img: '../../images/values/values_8.jpg'
+        },
+        {
+          mods: 'values__item--accent',
+          title: 'Добросовестность',
+          titleMods: 'values__title--s',
+          descr: 'Исполняем взятые на себя обязательства',
+          descrMods: 'values__descr--max-w-s',
+          img: '../../images/values/values_7.jpg'
+        },
+        {
+          mods: 'values__item--reverse',
+          title: 'Позитив',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'У нас всегда позитивный тон к коммуникации',
+          img: '../../images/values/values_5.jpg'
+        },
+      ]
+    }
+
+block content
+  main
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_9.png', '--distributors')
+          +page-head__title('Дистрибьюторам')
+          +page-head__descr('С компанией «Акульчев» сотрудничать выгодно. Мы активно продвигаем свою продукцию с помощью соцсетей и маркетинговых акций, предоставляем выгодные условия сотрудничества, гарантируем стабильность поставок.')
+          .page-head__buttons
+            +ui-button('', 'page-head, --text')(href='#' download)
+              +ui-svg('icon_download')
+              | Скачать каталог
+            +ui-button('', 'page-head, --text')(href='#' download)
+              +ui-svg('icon_download')
+              | Скачать фото продукции
+    +section
+      +values(valuesData)
+    +section('--ov-h')
+      .inner
+        +our-products
+    +section
+      .inner
+        +geography-presence(true, '--static-reverse')
+    +section('--mt80')
+      .inner
+        +our-partners
+    +section('--mt80')
+      .inner
+        +form('cooperate', '--col3')

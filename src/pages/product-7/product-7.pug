@@ -1,0 +1,44 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'product-7'
+    const pageTitle = 'Безе'
+
+    const packagingData = [
+      {
+        name: 'Безе',
+        img: '../../images/products-tabs/products-tabs_34.png',
+      }
+    ]
+
+    const innerSlider = [
+      '../../images/product-inner-slider/product-inner-slider_31.png'
+    ]
+
+    const packagingTypes = [
+      {
+        name: 'Безе:',
+        descr: ' 70г; 170г; 250г.'
+      },
+    ]
+
+block content
+  main
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_7.png', '--meringue')
+          +page-head__title('Безе')
+          +page-head__descr('<p>Безе – прекрасное изобретение французских кондитеров, которое когда – то было завезено в Россию. Мы создаем наш нежнейший десерт из самых простых и натуральных ингредиентов: запеченные яичные белки, взбитые с сахаром, нежно уложенные в удобную упаковку – именно так рождается наше хрустящее воздушное Безе - прекрасное дополнение к любому чаепитию.</p><p>Наш десерт придется по вкусу, как взрослым, так и детям: хрустящее снаружи, но нежное внутри: тает во рту. Попробуйте сами!</p>')
+    +section('--ov-h')
+      .inner
+        +products-packaging(packagingData)
+    +section('--mt40, --ov-h')
+      .inner
+        +product-inner-slider(innerSlider)
+    +section('--mt40')
+      .inner
+        +packaging-types(packagingTypes)
+  +section('--ov-h, --mt0')
+    .inner
+      +products-nav

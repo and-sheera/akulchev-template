@@ -1,0 +1,76 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'product-5'
+    const pageTitle = 'Macarons'
+
+    const packagingData = [
+      {
+        name: 'Соленая карамель',
+        img: '../../images/products-tabs/products-tabs_24.png',
+      },
+      {
+        name: 'Черника',
+        img: '../../images/products-tabs/products-tabs_25.png',
+      },
+      {
+        name: 'Фисташка',
+        img: '../../images/products-tabs/products-tabs_26.png',
+      },
+      {
+        name: 'Шоколад',
+        img: '../../images/products-tabs/products-tabs_27.png',
+      },
+      {
+        name: 'Клубника',
+        img: '../../images/products-tabs/products-tabs_28.png',
+      },
+      {
+        name: 'Манго - маракуйя',
+        img: '../../images/products-tabs/products-tabs_29.png',
+      },
+      {
+        name: 'Малина',
+        img: '../../images/products-tabs/products-tabs_30.png',
+      },
+    ]
+
+    function innerSlider() {
+      const arr = []
+      for(let i=21; i<=27; i++) {
+        arr.push(`../../images/product-inner-slider/product-inner-slider_${i}.png`)
+      }
+      return arr
+    }
+
+    const packagingTypes = [
+      {
+        name: 'Клубника, Соленая карамель, Шоколад, Малина, Черника, Фисташка:',
+        descr: '48г;'
+      },
+      {
+        name: 'Клубника, Манго - маракуйя, Шоколад, Малина, Черника, Фисташка:',
+        descr: '60г.'
+      }
+    ]
+
+block content
+  main
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_5.png', '--macarons')
+          +page-head__title('Macarons')
+          +page-head__descr('Macarons – это два воздушных миндальных печенья, соединенных нежной начинкой на основе белого шоколада. Пирожные произведены по традиционной французской рецептуре из 100% миндальной муки.')
+    +section('--ov-h')
+      .inner
+        +products-packaging(packagingData, '--height-xl, --width-s')
+    +section('--mt40, --ov-h')
+      .inner
+        +product-inner-slider(innerSlider())
+    +section('--mt40')
+      .inner
+        +packaging-types(packagingTypes)
+  +section('--ov-h, --mt0')
+    .inner
+      +products-nav

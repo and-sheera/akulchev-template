@@ -1,0 +1,129 @@
+.products-list {
+  position: relative;
+  display: grid;
+  gap: 92px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 10px;
+  @include media-laptop {
+    gap: 0;
+    padding: 30px 5px 10px;
+  }
+  @include media-tablet {
+    gap: 40px;
+    padding: 40px 25px 10px;
+    overflow: hidden;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 125px;
+    min-height: 330px;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: 0.3s $easeOutQuart;
+    @include media-laptop {
+      gap: 20px;
+      min-height: 230px;
+    }
+    @include media-tablet {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    &:hover {
+      .products-list__img {
+        transform: scale(1.05);
+      }
+    }
+    &:nth-child(odd) {
+      padding-left: 180px;
+      @include media-laptop {
+        padding-left: 135px;
+      }
+      @include media-tablet {
+        padding-left: 0;
+      }
+    }
+    &:nth-child(even) {
+      @media (min-width: ($mediaWidthTablet + 1)) {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
+    }
+    &:first-child {
+      .products-list__img {
+        margin-top: 0;
+      }
+    }
+    &:last-child {
+      .products-list__img {
+        margin-bottom: 0;
+      }
+    }
+    &.scroll-anim {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  &__name {
+    font-weight: 700;
+    font-size: 60px;
+    @include media-laptop {
+      font-size: 30px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 30px;
+      @include media-laptop {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__link {
+    font-weight: 700;
+    font-size: 20px;
+    opacity: 0.5;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    @include media-laptop {
+      font-size: 16px;
+    }
+    &:hover {
+      color: #fff;
+      opacity: 1;
+      &::after {
+        transform: translateX(3px);
+      }
+    }
+    &::after {
+      content: '\00a0\00a0→';
+      display: inline-block;
+      transition: 0.3s;
+    }
+  }
+  &__img {
+    max-width: 700px;
+    margin: -92px 0;
+    transition: transform 0.3s $easeOutSine;
+    @include media-laptop {
+      max-width: 360px;
+      margin: 0;
+    }
+    @include media-tablet {
+      max-width: unset;
+      width: calc(100% + 50px);
+      height: 180px;
+      margin: 0 -25px;
+    }
+    img {
+      @include media-tablet {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: scale(1.15);
+      }
+    }
+  }
+}

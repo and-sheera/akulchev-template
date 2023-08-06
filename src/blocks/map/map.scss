@@ -1,35 +1,18 @@
 .map {
   position: relative;
-  height: 500px;
-  @include media-laptop {
-    height: 340px;
-  }
-  @include media-tablet {
-    height: 250px;
-  }
   &__marker {
     width: 40px;
     height: 40px;
-    background: green;
+    background: #C80535;
     border-radius: 50%;
     cursor: pointer;
     @include media-laptop {
       width: 24px;
       height: 24px;
     }
-    @include media-tablet {
-      width: 15px;
-      height: 15px;
-    }
     &--xs {
       width: 20px;
       height: 20px;
     }
-  }
-  [class*='main-engine-container'] {
-    filter: grayscale(1);
-  }
-  canvas {
-    filter: grayscale(1);
   }
 }

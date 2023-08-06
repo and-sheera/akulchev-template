@@ -1,0 +1,27 @@
+mixin packaging-types(data, mods)
+  -
+    const baseName = 'packaging-types'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .packaging-types(class=allMods)&attributes(attributes)
+    if pageName === 'product-1'
+      each item in data
+        .packaging-types__item(class=item.mod)
+          .packaging-types__img: img(src=item.img alt='')
+          .packaging-types__name !{item.name}
+    else
+      .packaging-types__title Виды фасовки
+      .packaging-types__text
+        each item in data
+          p
+            b !{item.name}
+            =' '
+            | !{item.descr}
+    block

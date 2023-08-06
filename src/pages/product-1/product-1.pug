@@ -1,0 +1,98 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'product-1'
+    const pageTitle = 'Венские вафли'
+
+    const packagingData = [
+      {
+        name: 'Йогурт',
+        img: '../../images/products-tabs/products-tabs_1.png'
+      },
+      {
+        name: 'Сливки и вишня',
+        img: '../../images/products-tabs/products-tabs_2.png'
+      },
+      {
+        name: 'Взбитые сливки',
+        img: '../../images/products-tabs/products-tabs_3.png'
+      },
+      {
+        name: 'Банан',
+        img: '../../images/products-tabs/products-tabs_4.png'
+      },
+      {
+        name: 'Вареная сгущенка',
+        img: '../../images/products-tabs/products-tabs_5.png'
+      },
+      {
+        name: 'Абрикос',
+        img: '../../images/products-tabs/products-tabs_6.png'
+      },
+      {
+        name: 'Сливочно-ванильный',
+        img: '../../images/products-tabs/products-tabs_7.png'
+      },
+      {
+        name: 'Смородина',
+        img: '../../images/products-tabs/products-tabs_8.png'
+      },
+      {
+        name: 'Земляника',
+        img: '../../images/products-tabs/products-tabs_9.png'
+      },
+      {
+        name: 'Манго-маракуя',
+        img: '../../images/products-tabs/products-tabs_10.png'
+      },
+      {
+        name: 'Сливочные',
+        img: '../../images/products-tabs/products-tabs_11.png'
+      },
+      {
+        name: 'Черника',
+        img: '../../images/products-tabs/products-tabs_12.png'
+      },
+    ]
+
+    function innerSlider() {
+      const arr = []
+      for(let i=1; i<=11; i++) {
+        arr.push(`../../images/product-inner-slider/product-inner-slider_${i}.png`)
+      }
+      arr.push(`../../images/product-inner-slider/product-inner-slider_11.png`)
+      return arr
+    }
+
+    const packagingTypes = [
+      {
+        img: '../../images/packaging-types/packaging-types_1.png',
+        name: '105 гр'
+      },
+      {
+        mod: 'packaging-types__item--xl',
+        img: '../../images/packaging-types/packaging-types_2.png',
+        name: '560 гр'
+      }
+    ]
+
+block content
+  main
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_1.png', '--viennese-waffles')
+          +page-head__title('Венские вафли')
+          +page-head__descr('Легендарные венские вафли со взбитыми сливками — истинная находка для настоящих гурманов. Воздушная сбивная начинка, сдержанность и легкость вкуса создают еще один повод собраться всей семьей.')
+    +section('--ov-h')
+      .inner
+        +products-packaging(packagingData)
+    +section('--mt40, --ov-h')
+      .inner
+        +product-inner-slider(innerSlider())
+    +section('--mt40')
+      .inner
+        +packaging-types(packagingTypes, '--images')
+  +section('--ov-h, --mt0')
+    .inner
+      +products-nav

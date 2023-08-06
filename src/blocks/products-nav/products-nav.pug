@@ -1,0 +1,28 @@
+mixin products-nav(mods)
+  -
+    const baseName = 'products-nav'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = [
+      'Венские вафли',
+      'Купелька',
+      'Мяфли',
+      'Вафельное печенье',
+      'Macarons',
+      'Пирожное Павлова',
+      'Пломбир',
+      'Безе'
+    ]
+
+  .products-nav(class=allMods)&attributes(attributes)
+    .swiper-wrapper
+      each item, index in data
+        a.products-nav__item.swiper-slide(href='#' class=(index === 4 ? 'active' : '')) !{item}
+    block

@@ -1,0 +1,20 @@
+mixin products-packaging(data, mods)
+  -
+    const baseName = 'products-packaging'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .products-packaging(class=allMods)&attributes(attributes)
+    .swiper-wrapper
+      each item in data
+        .products-packaging__item.swiper-slide
+          .products-packaging__img: img(src=item.img alt=item.name)
+          .products-packaging__name !{item.name}
+    +ui-swiper-buttons('products-packaging')
+    block

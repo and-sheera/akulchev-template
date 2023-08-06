@@ -5,6 +5,9 @@
   grid-template-columns: minmax(0, 1fr) 49.2%;
   background: #F5F5F5;
   border-radius: var(--brdrds);
+  transform: translateY(50px);
+  opacity: 0;
+  transition: 0.4s $easeOutQuart;
   @include media-laptop {
     --brdrds: 40px;
 
@@ -12,6 +15,10 @@
   }
   @include media-tablet {
     grid-template-columns: minmax(0, 1fr);
+  }
+  &.scroll-anim {
+    transform: translateY(0);
+    opacity: 1;
   }
   &__content {
     padding: 90px 50px 90px 110px;

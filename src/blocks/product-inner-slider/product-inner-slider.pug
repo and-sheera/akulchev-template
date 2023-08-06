@@ -1,0 +1,20 @@
+mixin product-inner-slider(data, mods)
+  -
+    const baseName = 'product-inner-slider'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .product-inner-slider(class=allMods)&attributes(attributes)
+    .product-inner-slider__container
+      .swiper-wrapper
+        each item in data
+          .product-inner-slider__slide.swiper-slide: img(src=item alt='')
+    +ui-swiper-buttons('product-inner-slider')
+    +ui-swiper-bullets('product-inner-slider')
+    block

@@ -1,0 +1,94 @@
+.our-products {
+  position: relative;
+  padding: 0 108px;
+  overflow: hidden;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: 0.4s $easeOutQuart;
+  @include media-laptop {
+    padding: 0 30px;
+    overflow: unset;
+  }
+  @include media-tablet {
+    padding: 0 10px;
+  }
+  &.scroll-anim {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &__ui-h2 {
+    max-width: 415px;
+    margin-bottom: 20px;
+    @include media-laptop {
+      margin-bottom: 30px;
+    }
+    @include media-tablet {
+      text-align: center;
+    }
+  }
+  &__slider {
+    position: relative;
+  }
+  &__item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 48.6%;
+    align-items: center;
+    gap: 24px;
+    @include media-laptop {
+      gap: 20px;
+    }
+    @include media-tablet {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  &__text {
+    @include media-tablet {
+      padding: 0 15px;
+    }
+  }
+  &__name {
+    font-weight: 700;
+    font-size: 30px;
+    @include media-laptop {
+      font-size: 20px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-laptop {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__descr {
+    font-size: 20px;
+    line-height: 1.5;
+    @include media-laptop {
+      font-size: 16px;
+    }
+  }
+  &__ui-swiper-buttons {
+    position: absolute;
+    top: 50%;
+    right: -105px;
+    left: -105px;
+    z-index: 1;
+    transform: translateY(-50%);
+    justify-content: space-between;
+    color: #D9D9D9;
+    @include media-laptop {
+      right: -40px;
+      left: -40px;
+    }
+    @include media-tablet {
+      left: -17px;
+      right: -17px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      @include media-laptop {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

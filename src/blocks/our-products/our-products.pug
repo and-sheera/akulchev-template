@@ -1,0 +1,25 @@
+mixin our-products(mods)
+  -
+    const baseName = 'our-products'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .our-products(class=allMods)&attributes(attributes)
+    +ui-h2('Наша продукция', 'our-products, --xl')
+    .our-products__slider
+      .swiper-wrapper
+        -for(let i = 0; i<3; i++)
+          .our-products__item.swiper-slide
+            .our-products__text
+              .our-products__name Венские вафли
+              .our-products__descr Легендарные венские вафли со взбитыми сливками — истинная находка для настоящих гурманов. Воздушная сбивная начинка, сдержанность и легкость вкуса создают еще один повод собраться всей семьей.
+            .our-products__img: img(src='../../images/our-products.png' alt='')
+      +ui-swiper-buttons('our-products')
+    +ui-swiper-bullets('our-products')
+    block

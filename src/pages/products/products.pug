@@ -1,0 +1,14 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'products'
+    const pageTitle = 'products'
+
+block content
+  main.bg-red.pt0.pb0
+    +section
+      +products-list
+    +section('--mt0')
+      .inner
+        +form('', '--bg-white')

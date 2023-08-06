@@ -1,4 +1,4 @@
-mixin form(mods)
+mixin form(type, mods)
   -
     const baseName = 'form'
     let allMods = ''
@@ -10,15 +10,57 @@ mixin form(mods)
       allMods = allMods.trim()
     }
 
-  form.form(class=allMods)&attributes(attributes)
-    .form__head
-      .form__title Есть вопросы по&nbsp;продукции?
-      .form__subtitle Оставьте свои контакты и наш специалист свяжется с вами в течении одного рабочего дня
-    .form__main
-      .form__fields
-        +ui-input('name', '')(placeholder='Ваше имя' required data-parsley-error-message='Заполните обязательные поля')
-        +ui-input('email', '', 'email')(placeholder='E-mail' required data-parsley-error-message='Заполните обязательные поля')
-        +ui-input('name', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Заполните обязательные поля')
-        +ui-button('Отправить')(type='submit')
-    .form__footnote Нажимая кнопку «Отправить», Вы принимаете условия Пользовательского соглашения
-    block
+  case type
+    when 'cooperate'
+      form.form(class=allMods)&attributes(attributes)
+        .form__head
+          .form__title Хотите сотрудничать?
+          .form__subtitle Оставьте свои контакты и наш специалист свяжется с вами в течении одного рабочего дня
+        .form__fields
+          +ui-input('company', '')(placeholder='Компания' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('company-site', '')(placeholder='Сайт компании' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('name', '')(placeholder='ФИО контактного лица' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('email', '', 'email')(placeholder='E-mail' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('name', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Заполните обязательные поля')
+        .form__fields
+          +ui-textarea('message')(placeholder='Ваше сообщение')
+          .form__docs
+            .form__docs-step
+              .form__docs-text Скачайте и заполните анкету
+              +ui-button('', '--text')(href='#' download)
+                +ui-svg('icon_download')
+                | Скачать
+            .form__docs-step
+              .form__docs-text Прикрепите ее к заявке
+              +ui-button('', '--text')(data-file-attach='' data-popup-open='' href='#attach-file')
+                +ui-svg('icon_attach')
+                | Прикрепить
+              .form__doc(style='display: none;')
+                button.form__doc-del(type='button'): +ui-svg('icon_bin')
+                .form__doc-name
+          +ui-button('Отправить заявку', 'form')(type='submit')
+          .form__footnote Нажимая кнопку «Отправить», Вы принимаете условия Пользовательского соглашения
+        +popup('--max-w-s')#attach-file
+          .form__attachment
+            +ui-input('file', '--file', 'file')
+              label(for='file')
+                .ui-input__file-placeholder Вы можете просто перетащить файл сюда
+                .ui-input__file-name
+            +ui-button('Загрузить с компьютера', 'form')(type='button' data-text-start='Загрузить с компьютера' data-text-active='Готово')
+        +popup('--max-w-s')#file-del-accept
+          .form__file-del-accept
+            p Вы действительно хотите удалить файл?
+            +ui-button('Удалить', 'form')(type='button')
+    default
+      form.form(class=allMods)&attributes(attributes)
+        .form__head
+          .form__title Есть вопросы по&nbsp;продукции?
+          .form__subtitle Оставьте свои контакты и наш специалист свяжется с вами в течении одного рабочего дня
+        .form__main
+          .form__fields
+            +ui-input('name', '')(placeholder='Ваше имя' required data-parsley-error-message='Заполните обязательные поля')
+            +ui-input('email', '', 'email')(placeholder='E-mail' required data-parsley-error-message='Заполните обязательные поля')
+            +ui-input('name', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Заполните обязательные поля')
+            +ui-button('Отправить', 'form')(type='submit')
+        .form__footnote Нажимая кнопку «Отправить», Вы принимаете условия Пользовательского соглашения
+        block

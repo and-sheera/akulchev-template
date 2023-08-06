@@ -1,0 +1,63 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'product-3'
+    const pageTitle = 'Купелька'
+
+    const packagingData = [
+      {
+        name: 'Малина',
+        img: '../../images/products-tabs/products-tabs_15.png',
+      },
+      {
+        name: 'Брусника',
+        img: '../../images/products-tabs/products-tabs_16.png',
+      },
+      {
+        name: 'Яблоко - корица',
+        img: '../../images/products-tabs/products-tabs_17.png',
+      },
+      {
+        name: 'Лимон',
+        img: '../../images/products-tabs/products-tabs_18.png',
+      }
+    ]
+
+    const innerSlider = [
+      '../../images/product-inner-slider/product-inner-slider_14.png',
+      '../../images/product-inner-slider/product-inner-slider_15.png',
+      '../../images/product-inner-slider/product-inner-slider_16.png',
+      '../../images/product-inner-slider/product-inner-slider_17.png',
+    ]
+
+    const packagingTypes = [
+      {
+        name: 'Купелька (все вкусы):',
+        descr: '225г; 400г; 650г, 750г;'
+      },
+      {
+        name: 'Малина, брусника:',
+        descr: '2000г.'
+      },
+    ]
+
+block content
+  main
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_3.png', '--kypelka')
+          +page-head__title('Купелька')
+          +page-head__descr('<p>«Купелька» — так мы назвали линейку печенья, особенно близкого российскому покупателю по звучанию и ассортименту классических вкусов начинок. Необычная форма печенья неизменно привлекает внимание и вызывает непреодолимое желание его попробовать.</p> <p>Сдобное печенье в форме миниатюрного конвертика с джемами — это идеальное сочетание песочного теста и натуральных ягод!</p>')
+    +section('--ov-h')
+      .inner
+        +products-packaging(packagingData)(data-center-insufficient='')
+    +section('--mt40, --ov-h')
+      .inner
+        +product-inner-slider(innerSlider)
+    +section('--mt40')
+      .inner
+        +packaging-types(packagingTypes)
+  +section('--ov-h, --mt0')
+    .inner
+      +products-nav

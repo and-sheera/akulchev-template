@@ -63,20 +63,20 @@
   &__logo {
     position: relative;
     z-index: 1;
-    width: 164px;
-    height: 63px;
-    margin-bottom: -47px;
+    width: 168px;
+    height: 67px;
+    margin-bottom: -42px;
     flex-shrink: 0;
     color: #5F2321;
     @include media-laptop {
-      width: 135px;
-      height: 51px;
-      margin-bottom: -12px;
+      width: 140px;
+      height: 56px;
+      margin-bottom: -21px;
     }
     @include media-tablet {
-      width: 117px;
-      height: 44px;
-      margin-bottom: -10px;
+      width: 122px;
+      height: 50px;
+      margin-bottom: -20px;
     }
     &:hover {
       color: #5F2321;
@@ -371,7 +371,7 @@
     @include media-tablet {
       width: 30px;
       height: 30px;
-      padding: 8px 7px 7px 8px;
+      padding: 7px;
     }
     .ui-svg {
       display: none;

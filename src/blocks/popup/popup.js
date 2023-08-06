@@ -21,6 +21,14 @@ export default function popup() {
     }
   }
 
+  window.closePopup = function (id) {
+    const popupElement = document.querySelector(`#${id}`)
+    if (popupElement) {
+      document.querySelector(`#${id}`).classList.remove('active')
+      document.documentElement.style.overflow = ''
+    }
+  }
+
   for (const openButton of document.querySelectorAll('[data-popup-open]')) {
     openButton.addEventListener('click', function (event) {
       event.preventDefault()

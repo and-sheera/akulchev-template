@@ -1,0 +1,25 @@
+.products-nav {
+  position: relative;
+  padding-top: 15px;
+  @include media-laptop {
+    margin: 0 -20px;
+  }
+  @include media-tablet {
+    margin: 0 -10px;
+  }
+  &__item {
+    width: auto;
+    padding: 15px 22px;
+    background: #F5F5F5;
+    color: #AEA3AA;
+    border-radius: 20px 20px 0 0;
+    box-shadow: -5px -5px 15px 0 rgb(0 0 0 / 0.05);
+    font-size: 16px;
+    transition: color 0.3s;
+    &.active {
+      background: #C80535;
+      font-weight: 700;
+      color: #fff;
+    }
+  }
+}

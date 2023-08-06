@@ -1,0 +1,56 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'product-6'
+    const pageTitle = 'Мороженое'
+
+    const packagingData = [
+      {
+        name: 'С шоколадной крошкой',
+        img: '../../images/products-tabs/products-tabs_31.png',
+      },
+      {
+        name: 'С вареным сгущенным молоком',
+        img: '../../images/products-tabs/products-tabs_32.png',
+      },
+      {
+        name: 'С малиной',
+        img: '../../images/products-tabs/products-tabs_33.png',
+      }
+    ]
+
+    function innerSlider() {
+      const arr = []
+      for(let i=28; i<=30; i++) {
+        arr.push(`../../images/product-inner-slider/product-inner-slider_${i}.png`)
+      }
+      return arr
+    }
+
+    const packagingTypes = [
+      {
+        name: 'Мороженое: Малина, вареная сгущенка, шоколад:',
+        descr: '80г.'
+      },
+    ]
+
+block content
+  main
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_6.png', '--ice-cream')
+          +page-head__title('Мороженое')
+          +page-head__descr('<p>Следуя запросам наших покупателей, мы создаем не только новые вкусы, но и новые продукты: мороженое - сэндвич «Акульчев» с начинками: с малиной, с шоколадной крошкой и с вареной сгущенкой станут прекрасным дополнением и в жаркий летний день, и даже в непогоду.</p><p>Рассыпчатое печенье с мягким сливочным вкусом, изготовленное нашими технологами по оригинальной рецептуре австрийских кондитеров, нежно покрывает вкуснейший пломбир.</p><p>Разнообразные начинки: с шоколадной крошкой, вареной сгущенкой, малиной придутся по вкусу даже самым взыскательным гурманам.</p>')
+    +section('--ov-h')
+      .inner
+        +products-packaging(packagingData)
+    +section('--mt40, --ov-h')
+      .inner
+        +product-inner-slider(innerSlider())
+    +section('--mt40')
+      .inner
+        +packaging-types(packagingTypes)
+  +section('--ov-h, --mt0')
+    .inner
+      +products-nav

@@ -1,0 +1,46 @@
+mixin page-head(img, mods)
+  -
+    const baseName = 'page-head'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .page-head(class=allMods)&attributes(attributes)
+    .page-head__content
+      block
+    .page-head__img: img(src=img alt='')
+
+mixin page-head__title(text, mods)
+  -
+    const baseName = 'page-head__title'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  h1.page-head__title(class=allMods)&attributes(attributes) !{text}
+    block
+
+mixin page-head__descr(text, mods)
+  -
+    const baseName = 'page-head__descr'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .page-head__descr(class=allMods)&attributes(attributes) !{text}
+    block

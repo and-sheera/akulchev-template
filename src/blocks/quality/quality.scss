@@ -1,0 +1,90 @@
+.quality {
+  --brdrds: 60px;
+
+  display: flex;
+  align-items: center;
+  background: #F5F5F5;
+  border-radius: var(--brdrds);
+  transform: translateY(50px);
+  opacity: 0;
+  transition: 0.4s $easeOutQuart;
+  @include media-laptop {
+    --brdrds: 40px;
+  }
+  @include media-tablet {
+    flex-direction: column;
+  }
+  &.scroll-anim {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &__img {
+    width: 542px;
+    height: 592px;
+    flex-shrink: 0;
+    @include media-laptop {
+      width: 339px;
+      height: 399px;
+    }
+    @include media-tablet {
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding-bottom: 97%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--brdrds) var(--brdrds) 0;
+      object-fit: cover;
+      @include media-tablet {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  &__content {
+    padding: 110px 115px;
+    @include media-laptop {
+      padding: 35px 20px 50px;
+    }
+    @include media-tablet {
+      padding: 30px 20px 38px;
+    }
+  }
+  &__text {
+    font-size: 20px;
+    line-height: 1.5;
+    @include media-laptop {
+      font-size: 16px;
+    }
+    p {
+      &:not(:last-child) {
+        margin-bottom: 0.7em;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-laptop {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 60px;
+    @include media-laptop {
+      font-size: 30px;
+    }
+    @include media-tablet {
+      font-size: 25px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-laptop {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

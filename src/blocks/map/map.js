@@ -3,7 +3,7 @@ export default async function map() {
 
   const mapBlock = document.querySelector('.map')
 
-  if (mapBlock) {
+  if (mapBlock && mapBlock.children.length === 0) {
     const map = new ymaps3.YMap(mapBlock, {
       location: {
         // eslint-disable-next-line unicorn/numeric-separators-style

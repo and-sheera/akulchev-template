@@ -4,14 +4,25 @@
   display: flex;
   flex-direction: column;
   &__pin {
+    --pin-height: 775px;
+
     position: sticky;
-    top: calc(var(--header-height) + 20px);
+    top: calc(50vh + (var(--header-height) / 2) - (var(--pin-height) / 2));
     display: flex;
     flex-direction: column;
     width: 100%;
     overflow: hidden;
+    @include media-laptop {
+      --pin-height: 722px;
+    }
     @include media-tablet {
-      top: calc(var(--header-height) + 10px);
+      --pin-height: 488px;
+    }
+    &.scroll-anim {
+      .values__item {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   }
   &__ui-h2 {
@@ -46,6 +57,9 @@
     background: var(--bg);
     border-radius: var(--brdrds);
     flex-shrink: 0;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 0.4s $easeOutSine;
     overflow: hidden;
     @include media-laptop {
       --brdrds: 40px;
@@ -184,6 +198,9 @@
     }
     &--max-w-s {
       max-width: 240px;
+    }
+    &--max-w-m {
+      max-width: 300px;
     }
   }
   &__img {

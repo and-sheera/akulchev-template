@@ -1,0 +1,24 @@
+mixin our-awards(mods)
+  -
+    const baseName = 'our-awards'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = new Array(4)
+
+  .our-awards(class=allMods)&attributes(attributes)
+    .inner.our-awards__inner
+      .our-awards__title
+        +ui-h2('Наши награды', '--xl')
+      .our-awards__slider
+        .swiper-wrapper
+          each item, index in data
+            .our-awards__item.swiper-slide: img(src=`../../images/our-awards/our-awards_${index + 1}.png` alt='')
+        +ui-swiper-bullets('our-awards')
+    block

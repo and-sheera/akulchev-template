@@ -1,4 +1,4 @@
-mixin values(mods)
+mixin values(data, mods)
   -
     const baseName = 'values'
     let allMods = ''
@@ -10,47 +10,11 @@ mixin values(mods)
       allMods = allMods.trim()
     }
 
-    const data = {
-      title: 'Наши ценности',
-      items: [
-        {
-          mods: 'values__item--reverse values__item--d-width-l values__item--accent',
-          title: 'Забота',
-          descr: 'Обеспечиваем безопасность продукта, заботимся о здоровье потребителя, предоставляем качественный сервис',
-          img: '../../images/values/values_1.jpg'
-        },
-        {
-          title: 'Энергия',
-          descr: 'Выпускаем новые продукты, развиваемся, вовлекаем во взаимодействие ',
-          img: '../../images/values/values_2.jpg'
-        },
-        {
-          mods: 'values__item--reverse',
-          title: 'Вместе',
-          descr: 'Вместе делаем продукт, создаем дизайн посредством обратной связи, а также вкладываемся в благотворительность',
-          img: '../../images/values/values_3.jpg'
-        },
-        {
-          mods: 'values__item--accent',
-          title: 'Добросовестность',
-          titleMods: 'values__title--s',
-          descr: 'Нам доверяют как производителю',
-          descrMods: 'values__descr--max-w-s',
-          img: '../../images/values/values_4.jpg'
-        },
-        {
-          mods: 'values__item--reverse',
-          title: 'Позитив',
-          descr: 'Доставляем удовольствие вкусными и красивыми продуктами ',
-          img: '../../images/values/values_5.jpg'
-        },
-      ]
-    }
-
   .values(class=allMods)&attributes(attributes)
     .values__pin
       .inner.values__inner
-        +ui-h2(data.title, 'values')
+        if data.title
+          +ui-h2(data.title, 'values')
         .values__container
           each item, index in data.items
             .values__item(class=item.mods)

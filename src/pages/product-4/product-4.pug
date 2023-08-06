@@ -1,0 +1,74 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'product-4'
+    const pageTitle = 'Вафельное печенье'
+
+    const packagingData = [
+      {
+        name: 'Классика',
+        img: '../../images/products-tabs/products-tabs_19.png',
+      },
+      {
+        name: 'Какао',
+        img: '../../images/products-tabs/products-tabs_20.png',
+      },
+      {
+        name: 'Арахис',
+        img: '../../images/products-tabs/products-tabs_21.png',
+      },
+      {
+        name: 'Имбирное',
+        img: '../../images/products-tabs/products-tabs_22.png',
+      },
+      {
+        name: 'С глазурью',
+        img: '../../images/products-tabs/products-tabs_23.png',
+      }
+    ]
+
+    const innerSlider = [
+      '../../images/product-inner-slider/product-inner-slider_18.png',
+      '../../images/product-inner-slider/product-inner-slider_19.png',
+      '../../images/product-inner-slider/product-inner-slider_20.png',
+    ]
+
+    const packagingTypes = [
+      {
+        name: 'Классика:',
+        descr: '42г; 225г; 350г, 1000г; 2000г'
+      },
+      {
+        name: 'Какао:',
+        descr: '112г; 220г; 2000г'
+      },
+      {
+        name: 'Арахис:',
+        descr: '112г, 220г'
+      },
+      {
+        name: 'Вафельное с глазурью:',
+        descr: '116г; 232г'
+      }
+    ]
+
+block content
+  main
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_4.png', '--waffle-cookies')
+          +page-head__title('Вафельное печенье')
+          +page-head__descr('Рассыпчатое печенье с мягким сливочным вкусом овальной формы с фигурными краями изготовлено по оригинальной рецептуре австрийских кондитеров. Это ароматное и хрупкое печенье влюбляет в себя с первого раза! Ассортиментная линейка с использованием натурального какао и арахиса вносит разнообразие в классический вкус сливочного печенья.')
+    +section('--ov-h')
+      .inner
+        +products-packaging(packagingData, '--height-m')
+    +section('--mt40, --ov-h')
+      .inner
+        +product-inner-slider(innerSlider)
+    +section('--mt40')
+      .inner
+        +packaging-types(packagingTypes)
+  +section('--ov-h, --mt0')
+    .inner
+      +products-nav

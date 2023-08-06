@@ -6,6 +6,7 @@
   --active-b-sh-color: rgb(0 0 0 / 0.10);
 
   display: inline-flex;
+  gap: 6px;
   align-items: center;
   justify-content: center;
   padding: 16px 28px 17px;
@@ -35,6 +36,11 @@
 
     pointer-events: none;
   }
+  .ui-svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
   &--max-w305 {
     width: 100%;
     max-width: 305px;
@@ -52,5 +58,29 @@
     --active-color: rgb(67 60 60 / 0.7);
     --hover-b-sh-color: rgb(0 0 0 / 0.05);
     --active-b-sh-color: rgb(0 0 0 / 0.10);
+  }
+  &--text {
+    padding: 0;
+    background: none;
+    color: var(--bg);
+    border-radius: 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    @include media-laptop {
+      font-size: 16px;
+    }
+    &:hover {
+      color: var(--bg);
+      box-shadow: none;
+      opacity: 0.6;
+    }
+    &:active {
+      color: var(--bg);
+      box-shadow: none;
+    }
   }
 }

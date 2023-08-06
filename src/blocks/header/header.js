@@ -2,7 +2,6 @@ export default function header() {
   headerDimensions()
   window.addEventListener('load', headerDimensions)
   window.addEventListener('resize', headerDimensions)
-
   burger()
 }
 
@@ -15,7 +14,7 @@ function burger() {
   const header = document.querySelector('.header')
   const burgerButton = header.querySelector('.header__burger-button')
   if (burgerButton) {
-    burgerButton.addEventListener('click', function () {
+    burgerButton.addEventListener('click', function (event) {
       header.classList.toggle('header--burger')
       document.body.style.overflow = header.classList.contains('header--burger') ? 'hidden' : ''
     })

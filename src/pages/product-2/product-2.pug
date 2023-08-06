@@ -1,0 +1,53 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'product-2'
+    const pageTitle = 'Мяфли'
+
+    const packagingData = [
+      {
+        name: 'Шоколадные',
+        img: '../../images/products-tabs/products-tabs_13.png'
+      },
+      {
+        name: 'Сливочные',
+        img: '../../images/products-tabs/products-tabs_14.png'
+      }
+    ]
+
+    const innerSlider = [
+      '../../images/product-inner-slider/product-inner-slider_12.png',
+      '../../images/product-inner-slider/product-inner-slider_13.png',
+    ]
+
+    const packagingTypes = [
+      {
+        name: 'Мяфли:',
+        descr: '125г; 310г; 620г;'
+      },
+      {
+        name: 'Чоко мяфли:',
+        descr: '100г; 120г.'
+      },
+    ]
+
+block content
+  main
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_2.png', '--myaffles')
+          +page-head__title('Мяфли')
+          +page-head__descr('Мягкие вафли круглой формы — стали первыми в России в своем роде. Назвали мы их ласково — «Мяфли». В офисе или дома из «Мяфель» можно делать сэндвичи с шоколадной пастой, сгущенным молоком, джемами или медом, а компактная упаковка легко поместится в школьном портфеле.')
+    +section('--ov-h')
+      .inner
+        +products-packaging(packagingData, '--height-l')(data-center-insufficient='')
+    +section('--mt40, --ov-h')
+      .inner
+        +product-inner-slider(innerSlider)
+    +section('--mt40')
+      .inner
+        +packaging-types(packagingTypes)
+  +section('--ov-h, --mt0')
+    .inner
+      +products-nav

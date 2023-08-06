@@ -1,11 +1,14 @@
+import { scrollTrigger } from '../../js'
+
 export default function values() {
   window.addEventListener('load', () => {
     const container = document.querySelector('.values')
     if (container) {
       const content = container.querySelector('.values__container')
       container.style.height = ''
+      content.style.minWidth = ''
 
-      const offset = 20
+      const offset = 0
       let contentWidth = 0
       const stepItems = content.querySelectorAll('.values__item')
       for (const stepItem of stepItems) {
@@ -34,6 +37,14 @@ export default function values() {
         }
       }
       window.addEventListener('scroll', handleScroll)
+
+      scrollTrigger('.values__item', {
+        stagger: 200,
+        cb: () => {}
+      })
+      scrollTrigger('.values__pin', {
+        threshold: 0.4
+      })
     }
   })
 }

@@ -1,0 +1,23 @@
+mixin our-partners(mods)
+  -
+    const baseName = 'our-partners'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = new Array(6)
+
+  .our-partners(class=allMods)&attributes(attributes)
+    +ui-h2('Наши партнеры', 'our-partners, --xl')
+    .our-partners__slider
+      .swiper-wrapper
+        -for(let i=0; i<3; i++)
+          each item, index in data
+            .our-partners__item.swiper-slide: img(src=`../../images/our-partners/our-partners_${index + 1}.png` alt='')
+      +ui-swiper-buttons('our-partners')
+    block

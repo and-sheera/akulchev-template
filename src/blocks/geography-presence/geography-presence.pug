@@ -1,0 +1,55 @@
+mixin geography-presence(isStatic, mods)
+  -
+    const baseName = 'geography-presence'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = [
+      'Азербайджан',
+      'Молдова',
+      'Армения',
+      'Монголия',
+      'Беларусь',
+      'США',
+      'Россия',
+      'Таджикистан',
+      'Германия',
+      'Туркменистан',
+      'Израиль',
+      'Узбекистан',
+      'Казахстан',
+      'Украина',
+      'Китай',
+      'Бразилия'
+    ]
+
+  .geography-presence(class=allMods)&attributes(attributes)
+    .geography-presence__main
+      +ui-h2('География присутствия', 'geography-presence, --xl')
+      .geography-presence__descr Наша продукция представлена более чем в 15 странах мира
+      if isStatic
+        +ui-button('Свяжитесь с вашим региональным менеджером', 'geography-presence, --text')
+      else
+        +ui-button('Смотреть на карте', 'geography-presence, --text')(data-toggle='' data-text-start='Смотреть списком' data-text-active='Смотреть на карте')
+    if !isStatic
+      .geography-presence__flip
+        .geography-presence__flip-inner
+          +map('geography-presence')(data-center='52.311657, 55.731943' data-zoom='11' data-markers='52.223080, 55.735236; 52.456539, 55.709658')
+          .geography-presence__countries
+            each item, index in data
+              .geography-presence__country
+                .geography-presence__flag: img(src=`../../images/geography-presence/geography-presence_${index+1}.png` alt='')
+                .geography-presence__country-name !{item}
+    else
+      .geography-presence__countries
+        each item, index in data
+          .geography-presence__country
+            .geography-presence__flag: img(src=`../../images/geography-presence/geography-presence_${index+1}.png` alt='')
+            .geography-presence__country-name !{item}
+    block

@@ -7,6 +7,10 @@ $red: #C80535;
 $green: #00B152;
 $grey: #D9D9D9;
 
+// transitions
+$easeOutSine: cubic-bezier(0.61, 1, 0.88, 1);
+$easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
+
 // media
 $mediaWidthLaptop: 1360px;
 $mediaWidthTablet: 743px;

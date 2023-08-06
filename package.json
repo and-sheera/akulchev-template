@@ -3,10 +3,11 @@
   "version": "1.0.4",
   "type": "module",
   "description": "simple bem pug+scss template",
+  "author": "Alexey Kozyutenko",
   "license": "MIT",
   "scripts": {
     "dev": "gulp pugMixins && vite",
-    "build": "gulp pugMixins && vite build",
+    "build": "gulp pugMixins && vite build && node .change-path.js",
     "preview": "vite preview",
     "block": "node .create-block.js",
     "page": "node .create-page.js"
@@ -39,7 +40,7 @@
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-order": "^6.0.3",
     "stylelint-scss": "^5.0.0",
-    "vite": "^4.2.1",
+    "vite": "^4.4.8",
     "vite-plugin-babel": "^1.1.3",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-imagemin": "^0.6.1",

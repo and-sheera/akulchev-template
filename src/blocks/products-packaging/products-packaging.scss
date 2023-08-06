@@ -1,0 +1,118 @@
+.products-packaging {
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 30px;
+  @include media-laptop {
+    margin-bottom: 40px;
+  }
+  @include media-tablet {
+    margin-bottom: 20px;
+  }
+  &__item {
+    width: auto;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.4s;
+    &.swiper-slide-active {
+      color: $red;
+      .products-packaging__img {
+        transform: scale(1.12);
+      }
+    }
+    &.swiper-slide-next {
+      transform: translateX(8px);
+      @include media-tablet {
+        transform: translateX(10px);
+      }
+    }
+    &.swiper-slide-prev {
+      transform: translateX(-8px);
+      @include media-tablet {
+        transform: translateX(-10px);
+      }
+    }
+    &:not(.swiper-slide-active) {
+      .products-packaging__img {
+        opacity: 0.5;
+      }
+    }
+  }
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 270px;
+    height: 143px;
+    margin: 0 auto;
+    transform-origin: bottom;
+    transition: 0.3s $easeOutSine;
+    @include media-laptop {
+      width: 200px;
+      height: 98px;
+    }
+  }
+  &__name {
+    max-width: 260px;
+    margin: 10px auto 0;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.5;
+    @include media-laptop {
+      max-width: 232px;
+    }
+  }
+  &__ui-swiper-buttons {
+    position: absolute;
+    top: 34%;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    justify-content: space-between;
+    filter: drop-shadow(0 4px 20px rgb(0 0 0 / 0.4));
+    @include media-laptop {
+      display: none;
+    }
+  }
+  &--height-m {
+    .products-packaging__img {
+      height: 190px;
+      @include media-laptop {
+        height: 170px;
+      }
+    }
+  }
+  &--height-l {
+    .products-packaging {
+      &__img {
+        height: 246px;
+        @include media-laptop {
+          height: 210px;
+        }
+      }
+      &__ui-swiper-buttons {
+        top: 24%;
+      }
+    }
+  }
+  &--height-xl {
+    .products-packaging {
+      &__img {
+        height: 315px;
+        @include media-laptop {
+          height: 250px;
+        }
+      }
+      &__ui-swiper-buttons {
+        top: 43%;
+      }
+    }
+  }
+  &--width-s {
+    .products-packaging__img {
+      width: 200px;
+      @include media-laptop {
+        width: 180px;
+      }
+    }
+  }
+}

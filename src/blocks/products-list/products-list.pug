@@ -1,0 +1,30 @@
+mixin products-list(mods)
+  -
+    const baseName = 'products-list'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = [
+      'Венские вафли',
+      'Купелька',
+      'Мяфли',
+      'Вафельное печенье',
+      'Macarons',
+      'Безе',
+      'Мороженое',
+    ]
+
+  .products-list(class=allMods)&attributes(attributes)
+    each item, index in data
+      .products-list__item
+        .products-list__content
+          .products-list__name !{item}
+          a.products-list__link(href='#') Подробнее
+        .products-list__img: img(src=`../../images/products-list/products-list_${index+1}.png` alt=item)
+    block

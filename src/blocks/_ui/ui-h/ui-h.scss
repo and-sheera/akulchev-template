@@ -7,4 +7,13 @@
   @include media-tablet {
     font-size: 25px;
   }
+  &--xl {
+    font-size: 60px;
+    @include media-laptop {
+      font-size: 30px;
+    }
+    @include media-tablet {
+      font-size: 25px;
+    }
+  }
 }

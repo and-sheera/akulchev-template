@@ -1,0 +1,21 @@
+mixin quality(mods)
+  -
+    const baseName = 'quality'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .quality(class=allMods)&attributes(attributes)
+    .quality__img: img(src='../../images/quality.png' alt='')
+    .quality__content
+      .quality__title Качество
+      .quality__text
+        p Следим за качеством продукции с момента закупки сырья до магазинной полки.
+        p Выпускаем безопасную продукцию. Оборудовали завод лабораторией, где каждую партию исследуем на показатели безопасности. Кроме нашей лаборатории, продукция проходит независимую экспертизу.
+      +ui-button('Подробнее', '--text')(href='#')
+    block
