@@ -12,15 +12,18 @@ html(lang='ru')
       link(href='https://vitejs.dev/logo.svg' rel='icon' type='image/x-icon')
       script(src='https://api-maps.yandex.ru/3.0/?apikey=1f45e5c2-db9e-4adb-a847-0b7a110356ca&lang=ru_RU')
   body.transition-disabled
-    .wrapper
+    .wrapper(class=(withoutHeaderFooter ? 'wrapper--pt0' : ''))
       block header
-        include ../blocks/header/header
+        if !withoutHeaderFooter
+          include ../blocks/header/header
       block content
       block footer
-        include ../blocks/footer/footer
-      +popup#contact-us
-        +form('contact-us', '--col')(data-thx-popup='thx-popup')
-      +popup('--max-w-s')#thx-popup
-        +form-thx
+        if !withoutHeaderFooter
+          include ../blocks/footer/footer
+      if !withoutHeaderFooter
+        +popup#contact-us
+          +form('contact-us', '--col')(data-thx-popup='thx-popup')
+        +popup('--max-w-s')#thx-popup
+          +form-thx
     block scripts
       script(type='module' src='../../js/index.js')

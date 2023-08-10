@@ -3,16 +3,20 @@
   &__marker {
     width: 40px;
     height: 40px;
-    background: #C80535;
+    background-color: #C80535;
     border-radius: 50%;
     cursor: pointer;
     @include media-laptop {
       width: 24px;
       height: 24px;
     }
-    &--xs {
-      width: 20px;
-      height: 20px;
+    &--pin {
+      width: 21px;
+      height: 25px;
+      background-color: transparent;
+      background-image: url("data:image/svg+xml,%3Csvg width='22' height='25' viewBox='0 0 22 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.5818 20.0294C18.9544 18.2484 21.2531 14.7059 21.2531 10.6265C21.2531 4.75766 16.4954 0 10.6265 0C4.75766 0 0 4.75766 0 10.6265C0 14.6795 2.26895 18.2025 5.60592 19.9946L10.6112 24.9999L15.5818 20.0294Z' fill='%23C80535'/%3E%3Ccircle cx='10.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E%0A");
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   }
 }

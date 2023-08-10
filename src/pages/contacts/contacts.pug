@@ -3,9 +3,13 @@ extends ../../layout/layout
 block variables
   -
     const pageName = 'contacts'
-    const pageTitle = 'contacts'
+    const pageTitle = 'Контакты'
 
 block content
-  main
-    .inner
-      +ui-h2(pageTitle)
+  main.pt0
+    +section('--ov-h')
+      .inner
+        +contacts
+    +section
+      .inner
+        +form('cooperate', '--col3')(data-thx-popup='thx-popup')

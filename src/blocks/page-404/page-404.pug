@@ -11,8 +11,13 @@ mixin page-404(mods)
     }
 
   .page-404(class=allMods)&attributes(attributes)
+    .page-404__img: img(src='../../images/404.png' alt='')
     .inner.page-404__inner
-      .page-404__top ERROR
-      .page-404__err 404
-      +ui-button('Вернуться на главную', 'page-404, --m-pd-x-small')(href='/')
+      .page-404__container
+        a.page-404__logo(href='/')
+          +ui-svg('icon_logo')
+        .page-404__title Ошибка
+        .page-404__err 404
+        .page-404__descr Такой страницы не&nbsp;существует
+        +ui-button('Вернуться на главную', 'page-404, --text')(href='/')
     block

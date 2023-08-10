@@ -23,6 +23,7 @@ import interviewStages from '../blocks/interview-stages/interview-stages'
 import successStories from '../blocks/success-stories/success-stories'
 import jointRest from '../blocks/joint-rest/joint-rest'
 import history from '../blocks/history/history'
+import contacts from '../blocks/contacts/contacts'
 
 if (!window.init) {
   window.init = true
@@ -54,6 +55,7 @@ if (!window.init) {
     successStories()
     jointRest()
     history()
+    contacts()
 
     simpleScrollAnim()
   })

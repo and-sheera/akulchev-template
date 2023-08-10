@@ -78,6 +78,9 @@ blockquote {
   @include media-tablet {
     padding-top: var(--header-height, 50px);
   }
+  &--pt0 {
+    padding-top: 0;
+  }
   .inner {
     width: 100%;
     max-width: 1360px;
@@ -99,6 +102,9 @@ blockquote {
     }
     &.pb0 {
       padding-bottom: 0;
+    }
+    &.flex {
+      display: flex;
     }
     &.bg-red {
       background-color: #B20530;

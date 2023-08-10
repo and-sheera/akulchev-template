@@ -3,7 +3,7 @@ export default async function map() {
 
   const mapBlock = document.querySelector('.map')
 
-  if (mapBlock && mapBlock.children.length === 0) {
+  for (const mapBlock of document.querySelectorAll('.map')) {
     const map = new ymaps3.YMap(mapBlock, {
       location: {
         // eslint-disable-next-line unicorn/numeric-separators-style
@@ -27,12 +27,12 @@ export default async function map() {
       }
     }
 
-    const markersXs = mapBlock.dataset.markersXs
+    const markersXs = mapBlock.dataset.markersPin
     if (markersXs) {
       for (const coordinates of markersXs.split(';')) {
         const markerCoordinates = coordinates.split(',').map(value => +value)
         const markerElement = document.createElement('div')
-        markerElement.className = 'map__marker map__marker--xs'
+        markerElement.className = 'map__marker map__marker--pin'
         markerElement.addEventListener('click', () => map.update({ location: { center: markerCoordinates, duration: 600, zoom: 7 } }))
         map.addChild(new ymaps3.YMapMarker({
           coordinates: markerCoordinates

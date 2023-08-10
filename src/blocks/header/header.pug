@@ -47,9 +47,9 @@ header.header
     .header__burger
       button.header__burger-close: +ui-svg('icon_cross')
       ul.header__menu
-        each item in menu
+        each item, index in menu
           li.header__item
-            a.header__link(href='#') !{item.name}
+            a.header__link(href='#' class=(index===0 ? 'active' : '')) !{item.name}
             if item.submenu
               .header__submenu
                 +header__nav(item.name)
