@@ -2,19 +2,12 @@
   position: relative;
   padding: 0 108px;
   overflow: hidden;
-  transform: translateY(50px);
-  opacity: 0;
-  transition: 0.4s $easeOutQuart;
   @include media-laptop {
     padding: 0 30px;
     overflow: unset;
   }
   @include media-tablet {
     padding: 0 10px;
-  }
-  &.scroll-anim {
-    transform: translateY(0);
-    opacity: 1;
   }
   &__ui-h2 {
     max-width: 415px;

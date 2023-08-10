@@ -10,9 +10,6 @@ export default function successStories() {
       slidesPerView: 1,
       spaceBetween,
       slidesOffsetAfter: element.querySelector('.success-stories__item')?.offsetWidth + spaceBetween || 540,
-      mousewheel: {
-        noMousewheelClass: 'success-stories__story'
-      },
       pagination: {
         el: '.success-stories .ui-swiper-bullets .swiper-pagination',
         type: 'bullets',

@@ -1,5 +1,4 @@
 import Swiper from 'swiper/bundle'
-import { scrollTrigger } from '../../js'
 
 export default function ourAwards() {
   if (document.querySelector('.our-awards')) {
@@ -21,12 +20,6 @@ export default function ourAwards() {
           spaceBetween: 20
         }
       }
-    })
-
-    window.addEventListener('load', () => {
-      scrollTrigger('.our-awards__item', {
-        stagger: 50
-      })
     })
   }
 }

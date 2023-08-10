@@ -50,6 +50,9 @@
       width: 200px;
       height: 98px;
     }
+    img {
+      @include scale-in;
+    }
   }
   &__name {
     max-width: 260px;

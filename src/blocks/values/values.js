@@ -1,5 +1,3 @@
-import { scrollTrigger } from '../../js'
-
 export default function values() {
   window.addEventListener('load', () => {
     const container = document.querySelector('.values')
@@ -37,14 +35,6 @@ export default function values() {
         }
       }
       window.addEventListener('scroll', handleScroll)
-
-      scrollTrigger('.values__item', {
-        stagger: 200,
-        cb: () => {}
-      })
-      scrollTrigger('.values__pin', {
-        threshold: 0.4
-      })
     }
   })
 }

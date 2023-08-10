@@ -13,3 +13,11 @@
     @content;
   }
 }
+@mixin fade-up {
+  transform: translateY(30px);
+  opacity: 0;
+}
+@mixin scale-in {
+  transform: scale(0);
+  opacity: 0;
+}

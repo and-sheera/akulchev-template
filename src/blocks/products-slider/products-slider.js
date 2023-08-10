@@ -1,5 +1,4 @@
 import Swiper from 'swiper/bundle'
-import { scrollTrigger } from '../../js'
 
 export default function productsSlider() {
   if (document.querySelector('.products-slider')) {
@@ -25,13 +24,6 @@ export default function productsSlider() {
           spaceBetween: 40
         }
       }
-    })
-
-    window.addEventListener('load', () => {
-      scrollTrigger('.products-slider__item', {
-        threshold: 0.3,
-        stagger: 50
-      })
     })
   }
 }

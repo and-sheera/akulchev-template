@@ -5,18 +5,12 @@
   align-items: center;
   background: #F5F5F5;
   border-radius: var(--brdrds);
-  transform: translateY(50px);
-  opacity: 0;
-  transition: 0.4s $easeOutQuart;
+  @include fade-up;
   @include media-laptop {
     --brdrds: 40px;
   }
   @include media-tablet {
     flex-direction: column;
-  }
-  &.scroll-anim {
-    transform: translateY(0);
-    opacity: 1;
   }
   &__img {
     width: 542px;

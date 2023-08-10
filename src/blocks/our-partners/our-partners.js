@@ -1,5 +1,4 @@
 import Swiper from 'swiper/bundle'
-import { scrollTrigger } from '../../js'
 
 export default function ourPartners() {
   const slider = new Swiper('.our-partners__slider', {

@@ -54,9 +54,6 @@
     .swiper-wrapper {
       height: auto;
     }
-    &.swiper-backface-hidden .swiper-slide {
-      transform: translateY(50px);
-    }
   }
   &__item.swiper-slide {
     position: relative;
@@ -70,13 +67,6 @@
     @include media-laptop {
       width: 162px;
       height: 229px;
-    }
-    &:not(.swiper-slide-prev) {
-      opacity: 0;
-    }
-    &.scroll-anim {
-      transform: translateY(0);
-      opacity: 1;
     }
     &.swiper-slide-prev {
       opacity: 0;

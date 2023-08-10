@@ -13,6 +13,11 @@
     gap: 30px;
     padding: 0 10px;
   }
+  &__raw,
+  &__products,
+  &__safety {
+    @include fade-up;
+  }
   &__raw {
     background: #F5F5F5;
     border-radius: var(--brdrds);

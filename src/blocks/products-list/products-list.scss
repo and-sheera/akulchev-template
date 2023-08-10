@@ -20,9 +20,7 @@
     justify-content: space-between;
     gap: 125px;
     min-height: 330px;
-    transform: translateY(30px);
-    opacity: 0;
-    transition: 0.3s $easeOutQuart;
+    @include fade-up;
     @include media-laptop {
       gap: 20px;
       min-height: 230px;
@@ -61,10 +59,6 @@
       .products-list__img {
         margin-bottom: 0;
       }
-    }
-    &.scroll-anim {
-      transform: translateY(0);
-      opacity: 1;
     }
   }
   &__name {

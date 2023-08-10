@@ -1,5 +1,4 @@
 import Swiper from 'swiper/bundle'
-import { scrollTrigger } from '../../js'
 
 export default function toSuppliers() {
   if (document.querySelector('.to-suppliers')) {
@@ -16,10 +15,6 @@ export default function toSuppliers() {
         nextEl: '.to-suppliers .ui-swiper-buttons .swiper-button-next',
         prevEl: '.to-suppliers .ui-swiper-buttons .swiper-button-prev'
       }
-    })
-
-    scrollTrigger('.to-suppliers', {
-      threshold: 0.4
     })
   }
 }

@@ -98,6 +98,7 @@
         position: relative;
         height: auto;
         padding-bottom: 33%;
+        @include fade-up;
         @include media-laptop {
           padding-bottom: 29%;
         }

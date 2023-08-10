@@ -51,6 +51,7 @@
     "vite-plugin-svg-icons": "^2.0.1"
   },
   "dependencies": {
+    "gsap": "^3.12.2",
     "imask": "^7.0.1",
     "jquery": "^3.7.0",
     "lazysizes": "^5.3.2",
