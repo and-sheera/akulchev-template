@@ -14,10 +14,16 @@ mixin our-partners(mods)
 
   .our-partners(class=allMods)&attributes(attributes)
     +ui-h2('Наши партнеры', 'our-partners, --xl')
-    .our-partners__slider
-      .swiper-wrapper
+    if pageName === 'geography-presence'
+      .our-partners__grid
         -for(let i=0; i<3; i++)
           each item, index in data
-            .our-partners__item.swiper-slide: img(src=`../../images/our-partners/our-partners_${index + 1}.png` alt='')
-      +ui-swiper-buttons('our-partners')
+            a.our-partners__item(href='#' target='_blank'): img(src=`../../images/our-partners/our-partners_${index + 1}.png` alt='')
+    else
+      .our-partners__slider
+        .swiper-wrapper
+          -for(let i=0; i<3; i++)
+            each item, index in data
+              .our-partners__item.swiper-slide: img(src=`../../images/our-partners/our-partners_${index + 1}.png` alt='')
+        +ui-swiper-buttons('our-partners')
     block

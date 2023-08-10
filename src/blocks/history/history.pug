@@ -1,0 +1,30 @@
+mixin history(mods)
+  -
+    const baseName = 'history'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .history(class=allMods)&attributes(attributes)
+    .history__head
+      +ui-h2('История развития компании', 'history')
+      .history__years
+        .swiper-wrapper
+          -for(let i=1995; i<2015; i++)
+            .history__year.swiper-slide(class=(i===1995 ? 'active' : '')) !{i}
+    .history__main
+      .history__slider
+        .swiper-wrapper
+          -for(let i=1995; i<2015; i++)
+            .history__item.swiper-slide
+              .history__num !{i}
+              .history__title Аккредитация по международному стандарту ISO 22000
+              .history__descr В этом году компания получила 7 золотых медалей за качество продукции на выставке WorldFood, а также поставила и реализовала задачу по получению сертификата соответствия международным стандартам ISO 22000. Таким образом, компания «Акульчев» стала № 4 в России (и «№ 2 в Татарстане), кому удалось получить это сертификат. С того момента производство и бизнес-процессы компании вышли на новый уровень. Огромным прорывом стали первые поставки продукции в США, Китай и Армению. Запущено мелкосерийное тестовое производство Macarons.
+        +ui-swiper-buttons('history')
+      +ui-swiper-bullets('history')
+    block

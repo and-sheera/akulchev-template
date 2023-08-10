@@ -1,0 +1,24 @@
+mixin joint-rest(mods)
+  -
+    const baseName = 'joint-rest'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = new Array(5)
+
+  .joint-rest(class=allMods)&attributes(attributes)
+    .inner.joint-rest__inner
+      .joint-rest__head
+        +ui-h2('Совместный отдых', 'joint-rest')
+        .joint-rest__descr В компании «Акульчев» принято поддерживать доверительные отношения между сотрудниками. Мы считаем, что коллеги должны быть второй семьей и поддерживаем командный дух в неформальной обстановке.
+      .joint-rest__slider
+        .swiper-wrapper
+          each item, index in data
+            .joint-rest__item.swiper-slide: img(src='../../images/values/values_2.jpg', alt='')
+    block

@@ -4,7 +4,14 @@ import 'parsleyjs'
 
 export default function form() {
   for (const form of document.querySelectorAll('.form')) {
-    $(form).parsley()
+    form.addEventListener('submit', (event) => event.preventDefault())
+    $(form).parsley().on('form:success', function () {
+      const activePopup = document.querySelector('.popup.active')
+      if (activePopup) window.closePopup(activePopup.id)
+
+      const thxPopup = form.dataset.thxPopup
+      if (thxPopup) window.openPopup(thxPopup)
+    })
 
     const formDocsBlock = form.querySelector('.form__docs')
     if (formDocsBlock) {
@@ -13,6 +20,7 @@ export default function form() {
       const documentDelButton = formDocsBlock.querySelector('.form__doc-del')
       const attachment = form.querySelector('.form__attachment')
       const popupButton = formDocsBlock.querySelector('[data-file-attach]')
+      const deleteAcceptButton = form.querySelector('.form__file-del-accept .ui-button')
 
       if (attachment) {
         const attachmentButton = attachment.querySelector('.ui-button')
@@ -31,11 +39,16 @@ export default function form() {
         })
 
         documentDelButton.addEventListener('click', function () {
+          window.openPopup('file-del-accept')
+        })
+
+        deleteAcceptButton.addEventListener('click', function () {
           attachmentInput.value = ''
           attachmentInput.dispatchEvent(new Event('change'))
           popupButton.style.display = ''
           document.style.display = 'none'
           documentName.textContent = ''
+          window.closePopup('file-del-accept')
         })
 
         attachmentInput.addEventListener('change', function () {

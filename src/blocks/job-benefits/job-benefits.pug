@@ -1,0 +1,57 @@
+mixin job-benefits(mods)
+  -
+    const baseName = 'job-benefits'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = [
+      {
+        text: '<b>Известный бренд</b> на мировом рынке',
+        mod: 'job-benefits__item--max-w285'
+      },
+      {
+        text: '<b>Официальное трудоустройство</b>,  белая ЗП, оплачиваемые командировки',
+        mod: 'job-benefits__item--max-w380'
+      },
+      {
+        text: '<b>Современный и светлый офис</b> с панорамными окнами  оснащенный необходимой техникой и просторными рабочими местами ',
+        mod: 'job-benefits__item--max-w525'
+      },
+      {
+        text: '<b>Дружелюбный коллектив</b> и атмосфера в офисе. Взаимовыручка',
+      },
+      {
+        text: '<b>Тайминг</b> рабочего времени без переработок. Кофебрэйки.',
+      },
+      {
+        text: '<b>Развивающаяся компания</b> с отличными перспективами',
+      },
+      {
+        text: '<b>Участие в дегустации</b> новых вариантов продукции',
+      },
+      {
+        text: '<b>Возможность карьерного роста</b>. Обучение',
+      },
+      {
+        text: '<b>Интересные и веселые корпоративы</b>. Подарки детям сотрудников к праздникам.',
+        mod: 'job-benefits__item--max-w350'
+      },
+    ]
+
+  .job-benefits(class=allMods)&attributes(attributes)
+    .inner.job-benefits__inner
+      .job-benefits__title
+        +ui-h2('Преимущества работы')
+      .job-benefits__slider
+        .swiper-wrapper
+          each item, index in data
+            .job-benefits__item.swiper-slide(class=item.mod)
+              .job-benefits__name !{item.text}
+        +ui-swiper-bullets('job-benefits')
+    block

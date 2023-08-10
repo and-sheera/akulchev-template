@@ -16,6 +16,13 @@ import geographyPresence from '../blocks/geography-presence/geography-presence'
 import ourPartners from '../blocks/our-partners/our-partners'
 import popup from '../blocks/popup/popup'
 import uiInput from '../blocks/_ui/ui-input/ui-input'
+import toSuppliers from '../blocks/to-suppliers/to-suppliers'
+import video from '../blocks/video/video'
+import jobBenefits from '../blocks/job-benefits/job-benefits'
+import interviewStages from '../blocks/interview-stages/interview-stages'
+import successStories from '../blocks/success-stories/success-stories'
+import jointRest from '../blocks/joint-rest/joint-rest'
+import history from '../blocks/history/history'
 
 if (!window.init) {
   window.init = true
@@ -40,6 +47,13 @@ if (!window.init) {
     geographyPresence()
     ourPartners()
     popup()
+    toSuppliers()
+    video()
+    jobBenefits()
+    interviewStages()
+    successStories()
+    jointRest()
+    history()
 
     simpleScrollAnim()
   })

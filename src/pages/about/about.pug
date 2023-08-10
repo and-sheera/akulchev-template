@@ -1,0 +1,67 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'about'
+    const pageTitle = 'О компании'
+
+    const valuesData = {
+      items: [
+        {
+          mods: 'values__item--reverse values__item--accent',
+          title: 'Забота',
+          descrMods: 'values__descr--max-w-s',
+          descr: 'Забочусь о коллегах и наших партнерах',
+          img: '../../images/values/values_9.jpg'
+        },
+        {
+          title: 'Энергия',
+          descr: 'Я активно делаю свою работу и заряжаю энергией коллег',
+          img: '../../images/values/values_2.jpg'
+        },
+        {
+          mods: 'values__item--reverse',
+          title: 'Вместе',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'Вместе с командой делаю общее дело',
+          img: '../../images/values/values_10.jpg'
+        },
+        {
+          mods: 'values__item--accent',
+          title: 'Добросовестность',
+          titleMods: 'values__title--s',
+          descr: 'Работаю на совесть и делаю продукт как для себя',
+          descrMods: 'values__descr--max-w-m',
+          img: '../../images/values/values_11.jpg'
+        },
+        {
+          mods: 'values__item--reverse',
+          title: 'Позитив',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'Я мыслю позитивно и настраиваюсь только на хорошее',
+          img: '../../images/values/values_5.jpg'
+        },
+      ]
+    }
+
+block content
+  main
+    +section
+      .inner
+        +page-head('../../images/page-head/page-head_12.png', '--about')
+          +page-head__title('Акульчев ')
+          .page-head__quote “От семьи для семьи”
+          +page-head__descr('«Акульчев» сегодня является лидирующей компанией на российском рынке мягких вафель, которая продает свои изделия не только в России, но и в странах СНГ, и по всему миру.  Наша миссия - создавать вкусные, красивые, доступные продукты, которым доверяют.')
+          .page-head__buttons
+            +ui-button('Скачать каталог', 'page-head, --max-w305-only')(href='#')
+    +section('--ov-h')
+      .inner
+        +history
+    +section
+      +values(valuesData)
+    +section
+      .inner
+        +product-quality
+    +section
+      .inner
+        +fact

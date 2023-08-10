@@ -1,0 +1,20 @@
+mixin fact(mods)
+  -
+    const baseName = 'fact'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .fact(class=allMods)&attributes(attributes)
+    .fact__img: img(src='../../images/fact.jpg' alt='')
+    .fact__content
+      +ui-h2('О пальмовом масле', 'fact, --xl')
+      .fact__text
+        p Исследования влияния пальмового масла на человеческий организм проводятся более тридцати лет. Выяснилось, что в состав пальмового масла входит пальмитиновая кислота, которая повышает уровень холестерина в крови.
+        p Компания «Акульчев» отказалась от использования пальмового масла. Мы используем высокоолеиновое подсолнечное масло. Оно содержит большое количество витамина Е, который способствует укреплению иммунитета.
+    block

@@ -2,29 +2,27 @@ import Swiper from 'swiper/bundle'
 import { scrollTrigger } from '../../js'
 
 export default function ourPartners() {
-  if (document.querySelector('.our-partners')) {
-    const slider = new Swiper('.our-partners__slider:not(.swiper-initialized)', {
-      speed: 400,
-      slidesPerView: 1,
-      spaceBetween: 10,
-      watchSlidesProgress: true,
-      grid: {
-        rows: 2
+  const slider = new Swiper('.our-partners__slider', {
+    speed: 400,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    watchSlidesProgress: true,
+    grid: {
+      rows: 2
+    },
+    navigation: {
+      nextEl: '.our-partners .ui-swiper-buttons .swiper-button-next',
+      prevEl: '.our-partners .ui-swiper-buttons .swiper-button-prev'
+    },
+    breakpoints: {
+      744: {
+        slidesPerView: 3,
+        spaceBetween: 20
       },
-      navigation: {
-        nextEl: '.our-partners .ui-swiper-buttons .swiper-button-next',
-        prevEl: '.our-partners .ui-swiper-buttons .swiper-button-prev'
-      },
-      breakpoints: {
-        744: {
-          slidesPerView: 3,
-          spaceBetween: 20
-        },
-        1361: {
-          slidesPerView: 3,
-          spaceBetween: 20
-        }
+      1361: {
+        slidesPerView: 3,
+        spaceBetween: 20
       }
-    })
-  }
+    }
+  })
 }

@@ -1,0 +1,133 @@
+.history {
+  display: grid;
+  grid-template-columns: 515px minmax(0, 1fr);
+  gap: 70px;
+  @include media-laptop {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+  &__ui-h2 {
+    margin-bottom: 30px;
+    @include media-laptop {
+      margin-bottom: 20px;
+    }
+  }
+  &__years {
+    .swiper-wrapper {
+      flex-wrap: wrap;
+      gap: 20px;
+      height: auto;
+      @include media-laptop {
+        flex-wrap: unset;
+        gap: unset;
+      }
+    }
+  }
+  &__year {
+    width: auto;
+    min-width: 110px;
+    padding: 13px 25px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    background: #F5F5F5;
+    color: #9C9999;
+    border-radius: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+    @include media-laptop {
+      min-width: 70px;
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+    &:hover {
+      @media (min-width: ($mediaWidthLaptop + 1)) {
+        color: $red;
+      }
+    }
+    &.active {
+      color: #fff;
+      background: #C80535;
+    }
+  }
+  &__num {
+    font-weight: 700;
+    font-size: 50px;
+    color: #C80535;
+    @include media-laptop {
+      font-size: 30px;
+    }
+    @include media-tablet {
+      font-size: 25px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-laptop {
+        margin-bottom: 13px;
+      }
+      @include media-tablet {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    @include media-laptop {
+      font-size: 18px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &__descr {
+    font-size: 16px;
+    line-height: 1.6;
+    @include media-laptop {
+      font-size: 14px;
+    }
+  }
+  &__main {
+    max-width: 680px;
+    @include media-laptop {
+      max-width: unset;
+    }
+    @include media-tablet {
+      margin: 0 -5px;
+    }
+  }
+  &__slider {
+    position: relative;
+    padding: 0 75px;
+    overflow: hidden;
+    @include media-laptop {
+      padding: 0 50px;
+    }
+    @include media-tablet {
+      padding: 0 40px;
+    }
+    .swiper-wrapper {
+      height: auto;
+    }
+  }
+  &__ui-swiper-buttons {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    justify-content: space-between;
+    color: #D9D9D9;
+    .swiper-button {
+      &-prev,
+      &-next {
+        @include media-laptop {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}

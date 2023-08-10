@@ -1,0 +1,31 @@
+mixin interview-stages(mods)
+  -
+    const baseName = 'interview-stages'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .interview-stages(class=allMods)&attributes(attributes)
+    .interview-stages__text Мы внедряем новые технологии, создаем и выводим на рынок инновационные продукты. Развитие компании требует развития команды, поэтому мы обучаем самых талантливых сотрудников.
+    .interview-stages__quotes
+      +ui-h2('Цитаты наших сотрудников')
+      .interview-stages__slider
+        .swiper-wrapper
+          .interview-stages__quote.swiper-slide «Все три ценности, которые для меня важны, присутствуют в компании: честность, справедливость, дисциплина»
+          .interview-stages__quote.swiper-slide «Все три ценности, которые для меня важны, присутствуют в компании: честность, справедливость, дисциплина»
+          .interview-stages__quote.swiper-slide «Все три ценности, которые для меня важны»
+        +ui-swiper-buttons('interview-stages')
+      +ui-swiper-bullets('interview-stages, --white')
+    .interview-stages__stages
+      +ui-h2('Этапы собеседования')
+      ol.interview-stages__list
+        li.interview-stages__item заполнение анкеты
+        li.interview-stages__item(data-story-index='0') собеседование с HR
+        li.interview-stages__item(data-story-index='1') собеседование с начальником подразделения
+        li.interview-stages__item(data-story-index='2') собеседование с генеральным директором Сергеем Акульчевым
+    block

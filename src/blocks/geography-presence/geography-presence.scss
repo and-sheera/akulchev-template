@@ -5,6 +5,9 @@
   background: #f5f5f5;
   border-radius: 60px;
   overflow: hidden;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: 0.4s $easeOutQuart;
   @include media-laptop {
     grid-template-columns: minmax(0, 1fr) 61%;
     min-height: 445px;
@@ -13,6 +16,10 @@
   @include media-tablet {
     grid-template-columns: minmax(0, 1fr);
     min-height: unset;
+  }
+  &.scroll-anim {
+    transform: translateY(0);
+    opacity: 1;
   }
   &__main {
     display: flex;

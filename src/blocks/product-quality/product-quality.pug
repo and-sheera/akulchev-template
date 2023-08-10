@@ -1,0 +1,32 @@
+mixin product-quality(mods)
+  -
+    const baseName = 'product-quality'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .product-quality(class=allMods)&attributes(attributes)
+    .product-quality__raw
+      .product-quality__img: img(src='../../images/product-quality/product-quality_1.jpg' alt='')
+      .product-quality__content
+        +ui-h2('Проверяем качество сырья', 'product-quality, --xl')
+        .product-quality__text
+          p Следим за качеством продукции с момента закупки сырья до магазинной полки.
+          p Правила отбора поставщиков — часть производственного процесса, который лежит в основе регламента компании.
+          p Решение о работе с поставщиком принимаем только после лабораторного исследования.
+    .product-quality__products
+      .product-quality__content
+        +ui-h2('Проверяем качество продукции', 'product-quality, --xl')
+        .product-quality__text
+          p Выпускаем безопасную продукцию. Оборудовали завод лабораторией, где каждую партию исследуем на показатели безопасности. Кроме нашей лаборатории, продукция проходит независимую экспертизу.
+          p Наша продукция соответствует международным стандартам ХАССП, сертифицирована «Халяль» и допущена к продаже на международных рынках.
+      .product-quality__img: img(src='../../images/product-quality/product-quality_2.jpg' alt='')
+    .product-quality__safety
+      +ui-h2('FSSC 22000', '--xl')
+      .product-quality__text Работаем по международной схеме сертификации системы менеджмента пищевой безопасности
+    block

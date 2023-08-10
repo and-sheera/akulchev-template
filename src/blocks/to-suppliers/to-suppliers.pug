@@ -1,0 +1,28 @@
+mixin to-suppliers(mods)
+  -
+    const baseName = 'to-suppliers'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .to-suppliers(class=allMods)&attributes(attributes)
+    .to-suppliers__slider
+      .swiper-wrapper
+        -for(let i=0; i<5; i++)
+          .to-suppliers__slide.swiper-slide
+            .to-suppliers__name Сахар
+            .to-suppliers__value 650 тонн
+            .to-suppliers__img: img(src='../../images/to-suppliers.png' alt='')
+      +ui-swiper-buttons('to-suppliers')
+      +ui-swiper-bullets('to-suppliers')
+    .to-suppliers__content
+      +ui-h2('Объем потребления сырья в месяц', 'to-suppliers, --xl')
+      +ui-button('', 'to-suppliers, --text')(href='#' download)
+        +ui-svg('icon_download')
+        | Скачать спецификации
+    block

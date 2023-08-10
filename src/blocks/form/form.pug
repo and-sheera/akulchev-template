@@ -11,6 +11,19 @@ mixin form(type, mods)
     }
 
   case type
+    when 'contact-us'
+      form.form(class=allMods)&attributes(attributes)
+        .form__head
+          .form__title.form__title--xs Свяжитесь с вашим региональным менеджером
+        .form__fields
+          +ui-input('company-name', '')(placeholder='Наименование компании *' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('u-name', '')(placeholder='Ваше имя' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('name', '')(placeholder='ФИО контактного лица' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('contact-email', '', 'email')(placeholder='E-mail' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('contact-tel', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-textarea('u-message')(placeholder='Ваше сообщение')
+          +ui-button('Отправить', 'form')(type='submit')
+          .form__footnote Нажимая кнопку «Отправить», Вы принимаете условия Пользовательского соглашения
     when 'cooperate'
       form.form(class=allMods)&attributes(attributes)
         .form__head
@@ -21,7 +34,7 @@ mixin form(type, mods)
           +ui-input('company-site', '')(placeholder='Сайт компании' required data-parsley-error-message='Заполните обязательные поля')
           +ui-input('name', '')(placeholder='ФИО контактного лица' required data-parsley-error-message='Заполните обязательные поля')
           +ui-input('email', '', 'email')(placeholder='E-mail' required data-parsley-error-message='Заполните обязательные поля')
-          +ui-input('name', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('tel', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Заполните обязательные поля')
         .form__fields
           +ui-textarea('message')(placeholder='Ваше сообщение')
           .form__docs
@@ -51,6 +64,36 @@ mixin form(type, mods)
           .form__file-del-accept
             p Вы действительно хотите удалить файл?
             +ui-button('Удалить', 'form')(type='button')
+    when 'career'
+      form.form(class=allMods)&attributes(attributes)
+        .form__head
+          .form__title.form__title--max-w370 Хочешь работать в нашей команде?
+          .form__subtitle Оставьте контакты и прикрепите свое резюме
+        .form__fields
+          +ui-input('name', '')(placeholder='ФИО' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('email', '', 'email')(placeholder='E-mail' required data-parsley-error-message='Заполните обязательные поля')
+          +ui-input('tel', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Заполните обязательные поля')
+        .form__fields
+          .form__docs.form__docs--single
+            +ui-button('', '--text, --fz16')(data-file-attach='' data-popup-open='' href='#attach-file')
+              +ui-svg('icon_attach')
+              | Прикрепить резюме
+            .form__doc(style='display: none;')
+              button.form__doc-del(type='button'): +ui-svg('icon_bin')
+              .form__doc-name
+          +ui-button('Отправить заявку', 'form')(type='submit')
+          .form__footnote Нажимая кнопку «Отправить», Вы принимаете условия Пользовательского соглашения
+        +popup('--max-w-s')#attach-file
+          .form__attachment
+            +ui-input('file', '--file', 'file')
+              label(for='file')
+                .ui-input__file-placeholder Вы можете просто перетащить файл сюда
+                .ui-input__file-name
+            +ui-button('Загрузить с компьютера', 'form')(type='button' data-text-start='Загрузить с компьютера' data-text-active='Готово')
+        +popup('--max-w-s')#file-del-accept
+          .form__file-del-accept
+            p Вы действительно хотите удалить файл?
+            +ui-button('Удалить', 'form')(type='button')
     default
       form.form(class=allMods)&attributes(attributes)
         .form__head
@@ -60,7 +103,7 @@ mixin form(type, mods)
           .form__fields
             +ui-input('name', '')(placeholder='Ваше имя' required data-parsley-error-message='Заполните обязательные поля')
             +ui-input('email', '', 'email')(placeholder='E-mail' required data-parsley-error-message='Заполните обязательные поля')
-            +ui-input('name', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Заполните обязательные поля')
+            +ui-input('tel', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Заполните обязательные поля')
             +ui-button('Отправить', 'form')(type='submit')
         .form__footnote Нажимая кнопку «Отправить», Вы принимаете условия Пользовательского соглашения
         block

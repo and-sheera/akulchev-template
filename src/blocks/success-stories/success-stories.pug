@@ -1,0 +1,52 @@
+mixin success-stories(mods)
+  -
+    const baseName = 'success-stories'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const name = 'Ахметвалеева Зоя Николаевна'
+    const job = 'Специалист по адаптации'
+    const text = 'Свою трудовую деятельность в компании я начала в 2008 году в должности укладчицы-упаковщицы. 15 лет – пролетели как один год. За свой период работы я прошла все этапы на производстве: изготовитель мармеладно-пастильных изделий, учетчица готовой продукции. <br> В 2021 году мне предложили должность специалиста по адаптации. Компания помогла мне в развитии, направила на обучение по наставничеству, благодаря чему, мы успешно внедряем этот процесс на предприятии. Я рада, что мне удается успешно совмещать любимую работу и роль многодетной мамы, тем более у нас проходят корпоративные мероприятия, которые мы посещаем вместе. Свою трудовую деятельность в компании я начала в 2008 году в должности укладчицы-упаковщицы. 15 лет – пролетели как один год. За свой период работы я прошла все этапы на производстве: изготовитель мармеладно-пастильных изделий, учетчица готовой продукции. <br> В 2021 году мне предложили должность специалиста по адаптации. Компания помогла мне в развитии, направила на обучение по наставничеству, благодаря чему, мы успешно внедряем этот процесс на предприятии. Я рада, что мне удается успешно совмещать любимую работу и роль многодетной мамы, тем более у нас проходят корпоративные мероприятия, которые мы посещаем вместе.'
+
+  .success-stories(class=allMods)&attributes(attributes)
+    +ui-h2('Истории успеха', 'success-stories')
+    .success-stories__slider
+      .swiper-wrapper
+        .success-stories__item.swiper-slide
+          .success-stories__profile
+            .success-stories__img: img(src='../../images/success-stories/success-stories_1.jpg' alt='')
+            .success-stories__about
+              .success-stories__name !{name}
+              .success-stories__job !{job}
+          .success-stories__story
+            .success-stories__name !{name}
+            .success-stories__job !{job}
+            .success-stories__text !{text}
+        .success-stories__item.swiper-slide
+          .success-stories__profile
+            .success-stories__img: img(src='../../images/success-stories/success-stories_2.jpg' alt='')
+            .success-stories__about
+              .success-stories__name !{name}
+              .success-stories__job !{job}
+          .success-stories__story
+            .success-stories__name !{name}
+            .success-stories__job !{job}
+            .success-stories__text !{text}
+        .success-stories__item.swiper-slide
+          .success-stories__profile
+            .success-stories__img: img(src='../../images/success-stories/success-stories_3.jpg' alt='')
+            .success-stories__about
+              .success-stories__name !{name}
+              .success-stories__job !{job}
+          .success-stories__story
+            .success-stories__name !{name}
+            .success-stories__job !{job}
+            .success-stories__text !{text}
+    +ui-swiper-bullets
+    block

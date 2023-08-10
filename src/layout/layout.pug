@@ -18,5 +18,9 @@ html(lang='ru')
       block content
       block footer
         include ../blocks/footer/footer
+      +popup#contact-us
+        +form('contact-us', '--col')(data-thx-popup='thx-popup')
+      +popup('--max-w-s')#thx-popup
+        +form-thx
     block scripts
       script(type='module' src='../../js/index.js')

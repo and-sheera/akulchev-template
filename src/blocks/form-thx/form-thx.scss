@@ -1,0 +1,19 @@
+.form-thx {
+  text-align: center;
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    @include media-laptop {
+      font-size: 22px;
+    }
+    @include media-tablet {
+      font-size: 20px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &__subtitle {
+    font-size: 16px;
+  }
+}

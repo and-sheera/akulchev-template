@@ -48,6 +48,20 @@
       max-width: 170px;
     }
   }
+  &--max-w305-only {
+    width: 100%;
+    max-width: 305px;
+  }
+  &--max-w410 {
+    width: 100%;
+    max-width: 410px;
+    @include media-laptop {
+      max-width: 310px;
+    }
+    @include media-tablet {
+      max-width: unset;
+    }
+  }
   &--green {
     --bg: #{$green};
     --hover-b-sh-color: rgb(0 177 82 / 0.50);
@@ -82,5 +96,8 @@
       color: var(--bg);
       box-shadow: none;
     }
+  }
+  &--fz16 {
+    font-size: 16px;
   }
 }

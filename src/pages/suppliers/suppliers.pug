@@ -3,9 +3,62 @@ extends ../../layout/layout
 block variables
   -
     const pageName = 'suppliers'
-    const pageTitle = 'suppliers'
+    const pageTitle = 'Поставщикам'
+
+    const valuesData = {
+      items: [
+        {
+          mods: 'values__item--reverse values__item--accent',
+          title: 'Забота',
+          descrMods: 'values__descr--max-w-s',
+          descr: 'Всегда уважительно относимся к партнеру',
+          img: '../../images/values/values_6.jpg'
+        },
+        {
+          title: 'Энергия',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'Мы быстро работаем и выдвигаем инициативы',
+          img: '../../images/values/values_2.jpg'
+        },
+        {
+          mods: 'values__item--reverse',
+          title: 'Вместе',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'Вместе растем и развиваем бизнес',
+          img: '../../images/values/values_8.jpg'
+        },
+        {
+          mods: 'values__item--accent',
+          title: 'Добросовестность',
+          titleMods: 'values__title--s',
+          descr: 'Исполняем взятые на себя обязательства',
+          descrMods: 'values__descr--max-w-s',
+          img: '../../images/values/values_7.jpg'
+        },
+        {
+          mods: 'values__item--reverse',
+          title: 'Позитив',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'У нас всегда позитивный тон к коммуникации',
+          img: '../../images/values/values_5.jpg'
+        },
+      ]
+    }
 
 block content
   main
-    .inner
-      +ui-h1(pageTitle)
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_10.png', '--suppliers')
+          +page-head__title('Поставщикам')
+          +page-head__descr('Компания «Акульчев» отвечает за качество сырья. Мы работаем с теми поставщиками, кто придерживается таких же высоких стандартов качества. Мы не используем пальмовое масло в своих продуктах.')
+          .page-head__buttons
+            +ui-button('Заявка на сотрудничество', 'page-head, --max-w410')(href='#')
+    +section
+      .inner
+        +to-suppliers
+    +section
+      +values(valuesData)
+    +section('--mt80')
+      .inner
+        +form('cooperate', '--col3')(data-thx-popup='thx-popup')

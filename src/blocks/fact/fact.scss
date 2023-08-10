@@ -1,0 +1,60 @@
+.fact {
+  position: relative;
+  display: flex;
+  background: rgb(200 5 53 / 0.05);
+  border-radius: 60px;
+  @include media-laptop {
+    display: block;
+  }
+  &__img {
+    width: 470px;
+    flex-shrink: 0;
+    border-radius: 60px 60px 0;
+    overflow: hidden;
+    @include media-laptop {
+      width: 222px;
+      border-radius: 40px 40px 0;
+    }
+    @include media-tablet {
+      width: auto;
+      height: 185px;
+      border-radius: 0 40px 40px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__content {
+    padding: 60px;
+    @include media-laptop {
+      padding: 30px 30px 30px 20px;
+    }
+    @include media-tablet {
+      padding: 20px 20px 30px;
+    }
+  }
+  &__ui-h2 {
+    max-width: 515px;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-laptop {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    @include media-laptop {
+      font-size: 16px;
+    }
+    p {
+      &:not(:last-child) {
+        margin-bottom: 0.6em;
+      }
+    }
+  }
+}

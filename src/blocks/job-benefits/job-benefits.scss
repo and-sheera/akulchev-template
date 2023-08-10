@@ -1,0 +1,112 @@
+.job-benefits {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    width: calc((100vw - 1280px) / 2);
+    background: #fff;
+    @include media-laptop {
+      content: none;
+    }
+  }
+  &__inner {
+    display: grid;
+    grid-template-columns: 430px minmax(0, 1fr);
+    gap: 20px;
+    @include media-laptop {
+      display: block;
+    }
+  }
+  &__title {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    @include media-laptop {
+      margin-bottom: 20px;
+    }
+    @include media-tablet {
+      display: block;
+      text-align: center;
+    }
+  }
+  &__slider {
+    position: relative;
+    @include media-tablet {
+      padding-top: 0;
+    }
+    .swiper-wrapper {
+      height: auto;
+    }
+    &.swiper-backface-hidden .swiper-slide {
+      transform: translateY(50px);
+    }
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    max-width: 305px;
+    padding: 52px 46px;
+    border-radius: 60px;
+    transition: 0.4s $easeOutSine;
+    opacity: 0;
+    @include media-laptop {
+      max-width: 275px;
+      padding: 30px;
+      border-radius: 40px;
+    }
+    &.swiper-slide.scroll-anim {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    &:nth-child(even) {
+      background: #F5F5F5;
+    }
+    &:nth-child(odd) {
+      background: #C80535;
+      color: #fff;
+    }
+    &--max-w285 {
+      max-width: 285px;
+      @include media-laptop {
+        max-width: 175px;
+      }
+    }
+    &--max-w380 {
+      max-width: 380px;
+      @include media-laptop {
+        max-width: 275px;
+      }
+    }
+    &--max-w525 {
+      max-width: 535px;
+      @include media-laptop {
+        max-width: 405px;
+      }
+      @include media-tablet {
+        max-width: 365px;
+      }
+    }
+    &--max-w350 {
+      max-width: 350px;
+      @include media-laptop {
+        max-width: 270px;
+      }
+    }
+  }
+  &__name {
+    font-size: 20px;
+    line-height: 1.5;
+    @include media-laptop {
+      font-size: 16px;
+    }
+  }
+}

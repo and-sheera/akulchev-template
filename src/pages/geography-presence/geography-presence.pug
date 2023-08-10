@@ -1,0 +1,15 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'geography-presence'
+    const pageTitle = 'География присутствия'
+
+block content
+  main
+    +section
+      .inner
+        +geography-presence
+    +section
+      .inner
+        +our-partners('--grid')

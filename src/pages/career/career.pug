@@ -1,0 +1,73 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'career'
+    const pageTitle = 'Карьера в Акульчев'
+
+    const valuesData = {
+      items: [
+        {
+          mods: 'values__item--reverse values__item--accent',
+          title: 'Забота',
+          descrMods: 'values__descr--max-w-s',
+          descr: 'Забочусь о коллегах и наших партнерах',
+          img: '../../images/values/values_9.jpg'
+        },
+        {
+          title: 'Энергия',
+          descr: 'Я активно делаю свою работу и заряжаю энергией коллег',
+          img: '../../images/values/values_2.jpg'
+        },
+        {
+          mods: 'values__item--reverse',
+          title: 'Вместе',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'Вместе с командой делаю общее дело',
+          img: '../../images/values/values_10.jpg'
+        },
+        {
+          mods: 'values__item--accent',
+          title: 'Добросовестность',
+          titleMods: 'values__title--s',
+          descr: 'Работаю на совесть и делаю продукт как для себя',
+          descrMods: 'values__descr--max-w-m',
+          img: '../../images/values/values_11.jpg'
+        },
+        {
+          mods: 'values__item--reverse',
+          title: 'Позитив',
+          descrMods: 'values__descr--max-w-m',
+          descr: 'Я мыслю позитивно и настраиваюсь только на хорошее',
+          img: '../../images/values/values_5.jpg'
+        },
+      ]
+    }
+
+block content
+  main
+    +section('--ov-h')
+      .inner
+        +page-head('../../images/page-head/page-head_11.png', '--career')
+          +page-head__title('Карьера в Акульчев')
+          +page-head__descr('Ищем заинтересованных и ответственных сотрудников для работы на производстве и в офисе. Гарантируем условия труда, проводим обучение, даем перспективы для развития.')
+          .page-head__buttons
+            +ui-button('Открытые вакансии', 'page-head, --max-w305-only')(href='#')
+    +section
+      .inner
+        +video(src='/video.mp4' data-poster='/video-poster.png')
+    +section('--ov-h')
+      +job-benefits
+    +section
+      +values(valuesData)
+    +section
+      .inner
+        +interview-stages
+    +section('--ov-h')
+      .inner
+        +success-stories
+    +section('--ov-h')
+      +joint-rest
+    +section
+      .inner
+        +form('career', '--col3')(data-thx-popup='thx-popup')
