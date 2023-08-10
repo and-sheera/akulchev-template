@@ -63,9 +63,6 @@ export default defineConfig({
         optimizationLevel: 7,
         interlaced: false
       },
-      optipng: {
-        optimizationLevel: 7
-      },
       mozjpeg: {
         quality: 75
       },
