@@ -112,8 +112,7 @@ function animation() {
           trigger: productsListItem,
           start: 'top 80%',
           end: 'center bottom',
-          once: true,
-          markers: true
+          once: true
         }
       })
         .to(productsListItem, fadeUpSetting)
