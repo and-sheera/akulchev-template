@@ -9,6 +9,10 @@ export default function ourPartners() {
     grid: {
       rows: 2
     },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
     navigation: {
       nextEl: '.our-partners .ui-swiper-buttons .swiper-button-next',
       prevEl: '.our-partners .ui-swiper-buttons .swiper-button-prev'

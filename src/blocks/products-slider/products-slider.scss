@@ -64,6 +64,13 @@
     @include media-tablet {
       --size: 128px;
     }
+    &:hover {
+      .products-slider__img {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
     &.swiper-slide-prev {
       opacity: 0;
     }
@@ -116,6 +123,7 @@
     margin-top: 20px;
     font-weight: 700;
     font-size: 20px;
+    transition: 0.3s;
     @include media-tablet {
       margin-top: 10px;
       font-size: 16px;
@@ -144,6 +152,7 @@
       max-height: 190px;
       object-fit: contain;
       filter: drop-shadow(0 4px 25px rgb(0 0 0 / 0.4));
+      transition: 0.4s $easeOutSine;
       @include media-laptop {
         max-height: 165px;
         filter: drop-shadow(0 4px 10px rgb(0 0 0 / 0.25));

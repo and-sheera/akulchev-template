@@ -23,6 +23,9 @@ export default function history() {
     slidesPerView: 1,
     spaceBetween: 80,
     watchSlidesProgress: true,
+    autoplay: {
+      delay: 5000
+    },
     pagination: {
       el: '.history .ui-swiper-bullets .swiper-pagination',
       type: 'bullets',

@@ -7,6 +7,10 @@ export default function ourAwards() {
       slidesPerView: 'auto',
       spaceBetween: 12,
       watchSlidesProgress: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
       pagination: {
         el: '.our-awards .ui-swiper-bullets .swiper-pagination',
         type: 'bullets',

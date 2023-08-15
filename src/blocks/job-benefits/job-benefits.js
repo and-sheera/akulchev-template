@@ -6,6 +6,10 @@ export default function jobBenefits() {
     slidesPerView: 'auto',
     spaceBetween: 12,
     watchSlidesProgress: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
     pagination: {
       el: '.job-benefits .ui-swiper-bullets .swiper-pagination',
       type: 'bullets',

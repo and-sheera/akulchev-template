@@ -6,6 +6,10 @@ export default function jointRest() {
     slidesPerView: 'auto',
     spaceBetween: 10,
     watchSlidesProgress: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
     breakpoints: {
       744: {
         spaceBetween: 20

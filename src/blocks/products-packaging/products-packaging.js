@@ -36,6 +36,13 @@ export default function productsPackaging() {
         slider.on('slideChange', () => {
           innerSlider.swiper.slideTo(slider.activeIndex)
         })
+        setInterval(() => {
+          if (innerSlider.swiper.isEnd) {
+            innerSlider.swiper.slideTo(0)
+          } else {
+            innerSlider.swiper.slideNext()
+          }
+        }, 5000)
       }
     }
   }

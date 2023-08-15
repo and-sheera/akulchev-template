@@ -6,6 +6,10 @@ export default function interviewStages() {
       speed: 400,
       slidesPerView: 1,
       spaceBetween: 100,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
       pagination: {
         el: '.interview-stages .ui-swiper-bullets .swiper-pagination',
         type: 'bullets',

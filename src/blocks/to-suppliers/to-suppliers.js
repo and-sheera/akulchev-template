@@ -6,6 +6,10 @@ export default function toSuppliers() {
       speed: 400,
       slidesPerView: 1,
       spaceBetween: 60,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
       pagination: {
         el: '.to-suppliers .ui-swiper-bullets .swiper-pagination',
         type: 'bullets',

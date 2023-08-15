@@ -8,6 +8,9 @@ export default function contacts() {
       slidesPerView: 1,
       spaceBetween: 10,
       noSwipingClass: 'contacts__map',
+      autoplay: {
+        delay: 5000
+      },
       pagination: {
         el: '.contacts .ui-swiper-bullets .swiper-pagination',
         type: 'bullets',

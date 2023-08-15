@@ -5,6 +5,10 @@ export default function ourProducts() {
     speed: 400,
     slidesPerView: 1,
     spaceBetween: 110,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
     pagination: {
       el: '.our-products .ui-swiper-bullets .swiper-pagination',
       type: 'bullets',

@@ -7,6 +7,10 @@ export default function productsSlider() {
       slidesPerView: 'auto',
       spaceBetween: 6,
       watchSlidesProgress: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
       pagination: {
         el: '.products-slider .ui-swiper-bullets .swiper-pagination',
         type: 'bullets',

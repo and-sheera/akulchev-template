@@ -45,7 +45,7 @@ mixin products-slider(mods)
       .products-slider__slider
         .swiper-wrapper
           each item, index in data
-            .products-slider__item.swiper-slide(class=item.mod)
+            a.products-slider__item.swiper-slide(class=item.mod href='#')
               .products-slider__img: img(src=`../../images/products-slider/products-slider_${index + 1}.png` alt=item.name)
               .products-slider__name !{item.name}
         +ui-swiper-bullets('products-slider')

@@ -34,7 +34,7 @@ mixin geography-presence(isStatic, mods)
       +ui-h2('География присутствия', 'geography-presence, --xl')
       .geography-presence__descr Наша продукция представлена более чем в 15 странах мира
       if isStatic
-        +ui-button('Свяжитесь с вашим региональным менеджером', 'geography-presence, --text')
+        +ui-button('Свяжитесь с вашим региональным менеджером', 'geography-presence, --text')#contact-us(data-popup-open)
       else
         +ui-button('Смотреть на карте', 'geography-presence, --text')(data-toggle='' data-text-start='Смотреть списком' data-text-active='Смотреть на карте')
     if !isStatic
