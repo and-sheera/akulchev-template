@@ -65,18 +65,6 @@ block variables
       return arr
     }
 
-    const packagingTypes = [
-      {
-        img: '../../images/packaging-types/packaging-types_1.png',
-        name: '105 гр'
-      },
-      {
-        mod: 'packaging-types__item--xl',
-        img: '../../images/packaging-types/packaging-types_2.png',
-        name: '560 гр'
-      }
-    ]
-
 block content
   main
     +section('--ov-h')
@@ -90,9 +78,6 @@ block content
     +section('--mt40, --ov-h')
       .inner
         +product-inner-slider(innerSlider())
-    +section('--mt40')
-      .inner
-        +packaging-types(packagingTypes, '--images')
   +section('--ov-h, --mt0')
     .inner
       +products-nav

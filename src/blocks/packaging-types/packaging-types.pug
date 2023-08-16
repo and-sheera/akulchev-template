@@ -1,4 +1,4 @@
-mixin packaging-types(data, mods)
+mixin packaging-types(mods)
   -
     const baseName = 'packaging-types'
     let allMods = ''
@@ -10,18 +10,22 @@ mixin packaging-types(data, mods)
       allMods = allMods.trim()
     }
 
+    const data = [
+      {
+        img: '../../images/packaging-types/packaging-types_1.png',
+        name: '105 гр'
+      },
+      {
+        mod: 'packaging-types__item--xl',
+        img: '../../images/packaging-types/packaging-types_2.png',
+        name: '560 гр'
+      }
+    ]
+
   .packaging-types(class=allMods)&attributes(attributes)
-    if pageName === 'product-1'
+    -for(let i=0; i<3; i++)
       each item in data
         .packaging-types__item(class=item.mod)
           .packaging-types__img: img(src=item.img alt='')
           .packaging-types__name !{item.name}
-    else
-      .packaging-types__title Виды фасовки
-      .packaging-types__text
-        each item in data
-          p
-            b !{item.name}
-            =' '
-            | !{item.descr}
     block

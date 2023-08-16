@@ -1,13 +1,9 @@
 .packaging-types {
-  max-width: 1060px;
-  margin: 0 auto;
-  &--images {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: center;
-    gap: 30px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 15px 30px;
   &__item {
     max-width: 200px;
     text-align: center;
@@ -42,34 +38,6 @@
     line-height: 1.5;
     @include media-tablet {
       font-size: 16px;
-    }
-  }
-  &__title {
-    font-weight: 700;
-    font-size: 60px;
-    @include media-laptop {
-      font-size: 30px;
-    }
-    @include media-tablet {
-      font-size: 25px;
-    }
-    &:not(:last-child) {
-      margin-bottom: 30px;
-      @include media-tablet {
-        margin-bottom: 20px;
-      }
-    }
-  }
-  &__text {
-    font-size: 20px;
-    line-height: 1.5;
-    @include media-laptop {
-      font-size: 16px;
-    }
-    p {
-      &:not(:last-child) {
-        margin-bottom: 0.4em;
-      }
     }
   }
 }

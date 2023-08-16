@@ -14,7 +14,9 @@ mixin product-inner-slider(data, mods)
     .product-inner-slider__container
       .swiper-wrapper
         each item in data
-          .product-inner-slider__slide.swiper-slide: img(src=item alt='')
+          .product-inner-slider__slide.swiper-slide
+            .product-inner-slider__img: img(src=item alt='')
+            +packaging-types('product-inner-slider')
     +ui-swiper-buttons('product-inner-slider')
     +ui-swiper-bullets('product-inner-slider')
     block
