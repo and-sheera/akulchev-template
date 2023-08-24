@@ -1,6 +1,6 @@
 .footer {
   flex: 0 1;
-  padding: 40px 0 70px;
+  padding: 40px 0 50px;
   background: #433C3C;
   color: #fff;
   @include media-laptop {
@@ -11,16 +11,17 @@
   }
   &__inner.inner {
     position: relative;
-    display: flex;
-    gap: 140px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 50px 140px;
     @media (min-width: ($mediaWidthTablet + 1)) {
       padding-right: 155px;
     }
     @include media-laptop {
-      gap: 60px;
+      gap: 40px 60px;
     }
     @include media-tablet {
-      flex-direction: column;
+      grid-template-columns: minmax(0, 1fr);
       gap: 30px;
     }
   }
@@ -110,6 +111,22 @@
     opacity: 0.5;
     &:hover {
       color: #fff;
+    }
+  }
+  &__copy {
+    grid-column: 1/-1;
+    margin-left: 324px;
+    padding-top: 25px;
+    border-top: 1px solid rgb(151 151 151 / 0.2);
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(255 255 255 / 0.50);
+    @include media-laptop {
+      margin-left: 0;
+      margin-right: -135px;
+    }
+    @include media-tablet {
+      margin-right: 0;
     }
   }
 }
